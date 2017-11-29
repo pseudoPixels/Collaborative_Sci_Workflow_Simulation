@@ -1,0 +1,16 @@
+
+a, b = 0, 1
+while b < 200:
+       print (b),
+       a, b = b, a+b
+a, b = 0, 1
+while b < 200:
+       print (b),
+       a, b = b, a+b
+img_input_location = 'static/assets/img_outputs/output.png'
+img_thres=850
+img_output_location = 'static/img/plant_sideview.png'
+a, b = 0, 1
+while b < 200:
+       print (b),
+       a, b = b, a+b

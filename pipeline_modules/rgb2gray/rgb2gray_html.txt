@@ -1,0 +1,18 @@
+<br/>
+Select Image Input Location: <select  class="setting_param" name="image_location"> <!-- CHANGE IN THIS LINE -->
+      <option value="img_input_location = 'static/assets/img_outputs/output.png'" selected>Pipeline from last output</option>
+      <option value="img_input_location = 'static/img/2.jpg'" >Plant Leaf</option>
+      <option value="img_input_location = 'static/img/plant_sideview.png'">Plant Top Down View</option>
+      <option value="img_input_location = 'static/img/plant_sideview.png'">Plant Side View</option>
+</select>
+ <br/><br/>
+
+Select Image Output Location: <select  class="setting_param" name="image_location"> <!-- CHANGE IN THIS LINE -->
+      <option value="img_output_location = 'static/assets/img_outputs/output.png'" selected>Pipeline from last output</option>
+      <option value="img_output_location = 'static/img/2.jpg'" >Plant Leaf</option>
+      <option value="img_output_location = 'static/img/plant_sideview.png'">Plant Top Down View</option>
+      <option value="img_output_location = 'static/img/plant_sideview.png'">Plant Side View</option>
+</select> 
+<br/><br/>
+<input type="text" class="setting_param" value="img_thres=85"/>
+<br/><br/>
