@@ -774,8 +774,8 @@ def p2irc_login():
 		#last_name = p2irc_user.last_name
 		#email = p2irc_user.email
 		session['p2irc_user_email'] = email
-		return redirect(url_for('cvs')) #turn based collaboration... uncomment for this feature
-		#return redirect(url_for('cvs_module_locking')) #modular locking based collaboration... uncomment for this feature
+		#return redirect(url_for('cvs')) #turn based collaboration... uncomment for this feature
+		return redirect(url_for('cvs_module_locking')) #modular locking based collaboration... uncomment for this feature
 		#return redirect(url_for('cvs_atrr_level_locking')) #attr level locking based collaboration... uncomment for this feature
 
 	#if not row or list(row)[0].value != password:
@@ -1310,6 +1310,37 @@ def lockUnlockNode(workflow_id, node_id, isLock, nodeRequestor='None'):
 	#the required node not found... return failure response...
 	return False
 
+
+
+
+
+@app.route('/locking_module_is_node_locked/',  methods=['POST'])
+def locking_module_is_node_locked():
+	#get the request details
+	workflow_id = request.form['workflow_id']
+	node_id = request.form['node_id']
+
+	#the workflow doc with the corresponding workflow id
+	workflow_locking_doc = None
+
+	#get the request key for the corresponding workflow id
+	for row in views_by_workflow_locking_module(g.couch):
+		if row.key == workflow_id:
+			workflow_locking_doc = WorkflowLockingModule.load(row.value)
+			#found the required workflow doc.
+			break
+
+	isNodeLocked = False
+	#if we have found the required doc
+	if workflow_locking_doc != None:
+		for i in range(len(workflow_locking_doc.module_nodes)):
+			if workflow_locking_doc.module_nodes[i]['nodeID'] == node_id:#found the required node
+				isNodeLocked = workflow_locking_doc.module_nodes[i]['isLocked']
+				break #got the required information.... break
+
+
+	#return as the current owner
+	return jsonify({'isNodeLocked':isNodeLocked})
 
 
 

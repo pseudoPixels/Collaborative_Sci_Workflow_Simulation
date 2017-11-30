@@ -538,6 +538,7 @@ function loginFailure(errorCode, message) {
 
     // this is a recurse and immediately-invoking function
     (function recurse(currentNode) {
+       //console.log("Node Id:" + currentNode.data + " isLocked:" + currentNode.isLocked + " currentOwner:" + currentNode.currentOwner);
       // step 2
       for (var i = 0, length = currentNode.children.length; i < length; i++) {
         // step 3
@@ -701,18 +702,43 @@ function loginFailure(errorCode, message) {
     }
 
     //if the node is itself locked, then its NOT available for the requested user
-    if(theNode.isLocked == true)return false;
+    //if(theNode.isLocked == true)return false;//uncomment for checking via direct node property
+    if(isNodeLocked_srv(nodeData) == true)return false;//checking via server
 
     //if the node itself is not locked, check if any of its children are locked or not
     //if any of them are locked, the access is NOT granted...
     var nodeFloorAvailability = true;
     this.traverseDF_FromNode(theNode, function(node){
         //if any of its descendants are locked currently, the node access is not available
-        if(node.isLocked == true)nodeFloorAvailability = false;
+        //if(node.isLocked == true)nodeFloorAvailability = false; //uncomment for checing via direct node property
+        if(isNodeLocked_srv(node.data) == true)nodeFloorAvailability = false;//checking via server
     });
 
 
     return nodeFloorAvailability;
+
+  }
+
+  function isNodeLocked_srv(node_id){
+
+    workflow_id = 'workflow_module_id_1'
+    $.ajax({
+            type: "POST",
+            cache: false,
+            url: "/locking_module_is_node_locked/",
+            data: 'workflow_id=' + workflow_id+'&node_id='+node_id,
+            success: function (option) {
+                success = option['isNodeLocked'];
+
+                //return the isLocked information
+                return success;
+            },
+            error: function (xhr, status, error) {
+                alert("Some Error Occured while checking if node is locked or not from the server!!!");
+            },
+            async: false
+
+     });
 
   }
 
@@ -762,8 +788,7 @@ function loginFailure(errorCode, message) {
 
   //HELPER FUNCTION: lock a given node with corresponding owner name
   function lockNode(node, nodeOwner){
-    node.isLocked = true;
-    node.currentOwner = nodeOwner;
+
     var workflow_id = 'workflow_module_id_1';
 
 
@@ -774,7 +799,20 @@ function loginFailure(errorCode, message) {
             data: 'workflow_id=' + workflow_id+'&requestor='+nodeOwner+'&node_id='+node.data,
             success: function (option) {
                 success = option['success'];
-                //alert("Node Locking Success: " + success);
+
+/*
+                if(success==true){
+                    //successfully locked in the server...
+                    //so for consistency lock the local node as well
+                    node.isLocked = true;
+                    node.currentOwner = nodeOwner;
+
+                    console.log("Node Id:" + node.data + " isLocked:" + node.isLocked + " currentOwner:" + node.currentOwner);
+                }else{
+                    console.log("Sucess: " + success);
+                    console.log("Node Id:" + node.data + " isLocked:" + node.isLocked + " currentOwner:" + node.currentOwner);
+                }
+                //alert("Node Locking Success: " + success);*/
                 return success;
             },
             error: function (xhr, status, error) {
@@ -788,9 +826,6 @@ function loginFailure(errorCode, message) {
 
   //HELPER FUNCTION: unlock a node
   function unlockNode(node){
-    node.isLocked = false;
-    node.currentOwner = "NONE";
-
     var workflow_id = 'workflow_module_id_1';
 
     $.ajax({
@@ -800,6 +835,13 @@ function loginFailure(errorCode, message) {
             data: 'workflow_id=' + workflow_id+'&node_id='+node.data,
             success: function (option) {
                 success = option['success'];
+                if(success == true){
+                    //server unlocking of this node is successfull
+                    //unlock the local node as well for consistency
+                    node.isLocked = false;
+                    node.currentOwner = "NONE";
+
+                }
                 //alert("Node Unlocking Success: " + success);
                 return success;
             },
@@ -822,7 +864,7 @@ function getParentJSON(parentNodeData, tree_nodes){
       if(tree_nodes[i].text.node_id == parentNodeData)return tree_nodes[i];
     }
 
-return null;
+    return null;
 }
 
 
@@ -1309,6 +1351,10 @@ function onWorkflowModuleAdditionRequest(whoAdded, moduleID, moduleName){
         //by default the newly added node/module is locked by its creater (unless he releases it)
         //lockNode(addedNode, whoAdded); //Now handled in the server while creating the node first time by default
 
+        //sync in the local system
+        var theNode = workflow.getNode("module_id_"+moduleID, workflow.traverseDF);
+        theNode.isLocked = true;
+        theNode.currentOwner = whoAdded;
 
         //prepare the next valid unique module id
         //updateNextUniqueModuleID(); //currently done in the server.

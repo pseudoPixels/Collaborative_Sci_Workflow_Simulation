@@ -23,8 +23,8 @@
       <file leaf-file-name="test.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="25850">
-              <caret line="1201" column="0" lean-forward="false" selection-start-line="1201" selection-start-column="0" selection-end-line="1201" selection-end-column="0" />
+            <state relative-caret-position="149">
+              <caret line="1223" column="46" lean-forward="false" selection-start-line="1223" selection-start-column="13" selection-end-line="1223" selection-end-column="46" />
               <folding>
                 <element signature="e#0#78#0" expanded="true" />
               </folding>
@@ -32,31 +32,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cloud_vision_pipeline_save.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/cloud_vision_pipeline_save.html">
+      <file leaf-file-name="cloud_vision_pipeline_save_module_locking.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/cloud_vision_pipeline_save_module_locking.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2112">
-              <caret line="96" column="103" lean-forward="false" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="103" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="telepointer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="24464">
-              <caret line="1112" column="30" lean-forward="false" selection-start-line="1112" selection-start-column="30" selection-end-line="1112" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tool_integration.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/tool_integration.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="880">
-              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state relative-caret-position="352">
+              <caret line="79" column="7" lean-forward="true" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
               <folding />
             </state>
           </provider>
@@ -65,8 +45,18 @@
       <file leaf-file-name="telepointer_module_locking_srv.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer_module_locking_srv.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="694" column="30" lean-forward="true" selection-start-line="694" selection-start-column="30" selection-end-line="694" selection-end-column="30" />
+            <state relative-caret-position="517">
+              <caret line="1386" column="43" lean-forward="true" selection-start-line="1386" selection-start-column="43" selection-end-line="1386" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="telepointer_srv.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer_srv.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4042">
+              <caret line="1378" column="0" lean-forward="true" selection-start-line="1378" selection-start-column="0" selection-end-line="1584" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -84,25 +74,10 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>getNextUniqueModuleID</find>
-      <find>unique_module_id</find>
-      <find>TextField</find>
-      <find>asyn</find>
-      <find>cvs_module_locking</find>
-      <find>Synchronization Problem. Module IDs are not consistent over the network !!!</find>
-      <find>store</find>
-      <find>option</find>
-      <find>ListField</find>
-      <find>user_validation_result</find>
-      <find>auto_validation_result</find>
-      <find>onWorkflowModuleAdditionRequest</find>
-      <find>ajax</find>
       <find>str</find>
       <find>node.data</find>
-      <find>workflow_id</find>
       <find>unlockThisNodeAndDescendants</find>
       <find>lockThisNodeAndDescendants</find>
-      <find>lockNode</find>
       <find>nodeAccessRequestsQueue</find>
       <find>dispatchNodeRequests</find>
       <find>upload_file</find>
@@ -112,8 +87,23 @@
       <find>saved_pipelines</find>
       <find>srv</find>
       <find>design_pipelines_menu_biodatacleaning_id</find>
+      <find>changeParent</find>
+      <find>onModuleParentChange</find>
+      <find>isLocked</find>
       <find>onNodeAccessRequest</find>
       <find>isNodeFloorAvailable</find>
+      <find>cvs_module_locking</find>
+      <find>workflow_id</find>
+      <find>workflow</find>
+      <find>isNodeLocked_srv</find>
+      <find>No Ac</find>
+      <find>traverseDF</find>
+      <find>lockNode</find>
+      <find>addModuleToPipeline</find>
+      <find>lockUnlockNode</find>
+      <find>locking_module_get_next_module_id</find>
+      <find>onWorkflowM</find>
+      <find>onWorkflowModuleAdditionRequest</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -144,11 +134,11 @@
         <option value="$PROJECT_DIR$/templates/codeclone_validation.html" />
         <option value="$PROJECT_DIR$/static/easyrtc/telepointer_srv.js" />
         <option value="$PROJECT_DIR$/templates/cloud_vision_pipeline_save_module_locking.html" />
-        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/templates/cloud_vision_pipeline_save.html" />
         <option value="$PROJECT_DIR$/static/easyrtc/telepointer.js" />
         <option value="$PROJECT_DIR$/static/easyrtc/rayhan.json" />
         <option value="$PROJECT_DIR$/templates/tool_integration.html" />
+        <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/static/easyrtc/telepointer_module_locking_srv.js" />
       </list>
     </option>
@@ -174,25 +164,26 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -202,11 +193,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -216,11 +207,11 @@
           </PATH>
           <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Collaborative_Scientific_Workflow" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -234,7 +225,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -453,9 +443,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14534883" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17768377" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -771,26 +761,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/cloud_vision_pipeline_save_module_locking.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="123" column="0" lean-forward="true" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer_srv.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
-          <caret line="87" column="36" lean-forward="false" selection-start-line="87" selection-start-column="36" selection-end-line="87" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/easyrtc/rayhan.json" />
     <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24464">
           <caret line="1112" column="30" lean-forward="false" selection-start-line="1112" selection-start-column="30" selection-end-line="1112" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -798,7 +773,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2112">
           <caret line="96" column="103" lean-forward="false" selection-start-line="96" selection-start-column="40" selection-end-line="96" selection-end-column="103" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -806,14 +780,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="880">
           <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/cloud_vision_pipeline_save_module_locking.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="79" column="7" lean-forward="true" selection-start-line="79" selection-start-column="7" selection-end-line="79" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer_srv.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4042">
+          <caret line="1378" column="0" lean-forward="true" selection-start-line="1378" selection-start-column="0" selection-end-line="1584" selection-end-column="58" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25850">
-          <caret line="1201" column="0" lean-forward="false" selection-start-line="1201" selection-start-column="0" selection-end-line="1201" selection-end-column="0" />
+        <state relative-caret-position="149">
+          <caret line="1223" column="46" lean-forward="false" selection-start-line="1223" selection-start-column="13" selection-end-line="1223" selection-end-column="46" />
           <folding>
             <element signature="e#0#78#0" expanded="true" />
           </folding>
@@ -822,8 +811,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/easyrtc/telepointer_module_locking_srv.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="694" column="30" lean-forward="true" selection-start-line="694" selection-start-column="30" selection-end-line="694" selection-end-column="30" />
+        <state relative-caret-position="517">
+          <caret line="1386" column="43" lean-forward="true" selection-start-line="1386" selection-start-column="43" selection-end-line="1386" selection-end-column="43" />
           <folding />
         </state>
       </provider>
