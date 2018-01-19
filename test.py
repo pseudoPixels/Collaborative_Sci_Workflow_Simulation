@@ -1537,6 +1537,26 @@ def chat():
     return render_template('testtemp.html')
 
 
+
+
+
+
+################################################################
+################# SIMULATION STARTS HERE #######################
+################################################################
+@app.route('/workflow_simulation')
+def workflow_simulation():
+   return render_template('workflow_simulation.html')
+
+
+
+
+
+
+
+
+
+
 if __name__ == "__main__":
 	#socketio.run(app)
 	app.run()
