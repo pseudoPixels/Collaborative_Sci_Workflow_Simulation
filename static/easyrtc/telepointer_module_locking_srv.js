@@ -15,6 +15,11 @@ var unique_module_id = 1;
 //all the node access requests are kept in the Q to serve as FIFO
 var nodeAccessRequestsQueue = [];
 
+
+
+var moduleCount_sim = 0;
+var moduleNodeLocked_sim = false;
+
 $(document).ready(function(){
 
 //========================================================
@@ -606,7 +611,7 @@ function loginFailure(errorCode, message) {
     var targetNode = null,
     	oldParent = null,
       callback = function(node) {
-        if (node.data === data) {
+        if (node.data === data){
           oldParent = node.parent;
           targetNode = node;
         }
@@ -703,7 +708,9 @@ function loginFailure(errorCode, message) {
 
     //if the node is itself locked, then its NOT available for the requested user
     //if(theNode.isLocked == true)return false;//uncomment for checking via direct node property
-    if(isNodeLocked_srv(nodeData) == true)return false;//checking via server
+    isNodeLocked_srv(nodeData);//call this method before checking 'moduleNodeLocked_sim' - variable
+    if(moduleNodeLocked_sim == true)return false;//the node floor not available...
+
 
     //if the node itself is not locked, check if any of its children are locked or not
     //if any of them are locked, the access is NOT granted...
@@ -720,25 +727,26 @@ function loginFailure(errorCode, message) {
   }
 
   function isNodeLocked_srv(node_id){
+    //alert("The node ID : " + node_id);
 
-    workflow_id = 'workflow_module_id_1'
+    workflow_id = 'workflow_module_id_1';
     $.ajax({
             type: "POST",
             cache: false,
             url: "/locking_module_is_node_locked/",
-            data: 'workflow_id=' + workflow_id+'&node_id='+node_id,
+            data: 'workflow_id=' + workflow_id + '&node_id='+node_id,
             success: function (option) {
                 success = option['isNodeLocked'];
-
+                //alert("SUCCESS => " + success);
                 //return the isLocked information
-                return success;
+                moduleNodeLocked_sim = success;//kind of callback for updating the variable states
+                //return true;
             },
             error: function (xhr, status, error) {
                 alert("Some Error Occured while checking if node is locked or not from the server!!!");
             },
             async: false
-
-     });
+    });
 
   }
 
@@ -1192,11 +1200,37 @@ function updateNextUniqueModuleID(){
 //removes a passed request from the waiting queue
 //called when someone gets access from the queue
 function removeRequestFromQueue(requestInfo){
-    for(var i=0;i<nodeAccessRequestsQueue.length; i++){
-        if(nodeAccessRequestsQueue[i].nodeID == requestInfo.nodeID && nodeAccessRequestsQueue[i].requestedBy == requestInfo.requestedBy){
-            nodeAccessRequestsQueue.splice(i,1);
-        }
-    }
+        //remove the request from the server node access request Q
+        var workflow_id = 'workflow_module_id_1';
+        $.ajax({
+            type: "POST",
+            cache: false,
+            url: "/locking_module_remove_req_from_node_access_Q/",
+            data: 'workflow_id=' + workflow_id+'&requestor='+requestInfo.requestedBy+'&nodeID='+requestInfo.nodeID,
+            success: function (option) {
+                success = option['success'];
+                //succesfully added to the Q at the server
+                if(success == true){
+                    alert("Node Request removed successfully from srv...");
+                    for(var i=0;i<nodeAccessRequestsQueue.length; i++){
+                        if(nodeAccessRequestsQueue[i].nodeID == requestInfo.nodeID && nodeAccessRequestsQueue[i].requestedBy == requestInfo.requestedBy){
+                            nodeAccessRequestsQueue.splice(i,1);
+                        }
+                    }
+                }else alert("Node Request removing FAILED from srv...");
+            },
+            error: function (xhr, status, error) {
+                alert("Some server Error Occured while adding access request to the Q.");
+            },
+            async: false
+
+        });
+
+
+
+
+
+
 }
 
 
@@ -1214,7 +1248,7 @@ function isTheRequestAlreadyInQueue(requestInfo){
 
 
 //iterate over the node access requests
-//and dispatch any node request if possible.
+//and dispatch any node request if possible
 function dispatchNodeRequests(){
     for(var i=0;i<nodeAccessRequestsQueue.length; i++){
         var requestInfo = nodeAccessRequestsQueue[i];
@@ -1263,6 +1297,8 @@ function onNodeAccessRequest(requestedBy, nodeID){
 
     //if the requested node floor is available, give access to the requester
     if(workflow.isNodeFloorAvailable(nodeID, workflow.traverseDF) == true){
+        alert("Node Floor Available: True");
+
         //lock this and all its descendants node for the requested client
         workflow.lockThisNodeAndDescendants(requestedBy, nodeID, workflow.traverseDF);
 
@@ -1282,11 +1318,34 @@ function onNodeAccessRequest(requestedBy, nodeID){
     }
     //node is not currently accessable (locked by someone else), add the request to the queue
     else{
-        var requestInfo ={"nodeID":nodeID, "requestedBy":requestedBy};
-        //push the request to the queue if does not already exist in the queue
-        if(isTheRequestAlreadyInQueue(requestInfo) == false){
-            nodeAccessRequestsQueue.push(requestInfo);
-        }
+
+        alert("Node Floor Available: False");
+
+        //add the request to the server node access request Q
+        var workflow_id = 'workflow_module_id_1';
+        $.ajax({
+            type: "POST",
+            cache: false,
+            url: "/locking_module_add_to_node_access_Q/",
+            data: 'workflow_id=' + workflow_id+'&requestor='+requestedBy+'&nodeID='+nodeID,
+            success: function (option) {
+                success = option['success'];
+                //succesfully added to the Q at the server
+                if(success == true){
+                      var requestInfo ={"nodeID":nodeID, "requestedBy":requestedBy};
+                      //push the request to the queue if does not already exist in the queue
+                       if(isTheRequestAlreadyInQueue(requestInfo) == false){
+                            nodeAccessRequestsQueue.push(requestInfo);
+                       }
+
+                }
+            },
+            error: function (xhr, status, error) {
+                alert("Some server Error Occured while adding access request to the Q.");
+            },
+            async: false
+
+        });
 
     }
 
@@ -1308,13 +1367,9 @@ $(".node_floor_req").live("click", function(){
         //update the self state
         onNodeAccessRequest(user_email, node_id);
 
-
-
         //inform all other clients of this node access
         var requestInfo ={"nodeID":node_id, "requestedBy":user_email};
         notifyAll("node_access_request", requestInfo);
-
-
 
     }
     else if($(this).text() == "Release Node Access"){
@@ -1341,10 +1396,15 @@ $(".node_floor_req").live("click", function(){
 });
 
 
+
+
+
 //this function is invoked on new module addition request
 function onWorkflowModuleAdditionRequest(whoAdded, moduleID, moduleName){
         //if synchronization is ok... add this node to the workflow
         addModuleToPipeline(whoAdded,moduleID, moduleName);
+
+        moduleCount_sim = moduleID; //required for workflow simulation script
 
         //add the node to the workflow tree, default parent is 'workflow'
         var addedNode = workflow.add("module_id_"+moduleID, "workflow", workflow.traverseDF);
@@ -1415,14 +1475,6 @@ $("#design_pipelines_menu_biodatacleaning_id").click(function () {
 //========================================================
 //============= WORKFLOW CONTROL CODE ENDS ===============
 //========================================================
-
-
-
-
-
-
-
-
 
 
 

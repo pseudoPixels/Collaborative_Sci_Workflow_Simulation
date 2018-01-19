@@ -1233,6 +1233,9 @@ def locking_module_get_next_module_id():
 	for row in views_by_workflow_locking_module(g.couch):
 		if row.key == workflow_id:
 			workflow_locking_doc = WorkflowLockingModule.load(row.value)
+
+			#workflow_locking_doc.node_access_req_Q.remove({'nodeID':"module_id_1", 'requestedBy': "ashik@gmail.com "})
+
 			next_module_id = workflow_locking_doc.next_module_id
 
 			#add the node to the workflow list
@@ -1341,6 +1344,77 @@ def locking_module_is_node_locked():
 
 	#return as the current owner
 	return jsonify({'isNodeLocked':isNodeLocked})
+
+
+
+
+
+
+
+@app.route('/locking_module_add_to_node_access_Q/',  methods=['POST'])
+def locking_module_add_to_node_access_Q():
+	#get the request details
+	workflow_id = request.form['workflow_id']
+	#node module requestor
+	requestedBy = request.form['requestor']
+	#the requested node
+	nodeID = request.form['nodeID']
+
+
+	nodeReqAddSuccess = False
+	#get the request key for the corresponding workflow id
+	for row in views_by_workflow_locking_module(g.couch):
+		if row.key == workflow_id:
+			workflow_locking_doc = WorkflowLockingModule.load(row.value)
+
+			#add the node to the node_access_req_Q
+			workflow_locking_doc.node_access_req_Q.append({'nodeID':nodeID, 'requestedBy': "ashik@gmail.com "})
+			#update the doc
+			workflow_locking_doc.store()
+			nodeReqAddSuccess = True
+			break
+
+
+	#return succuess/failure response
+	return jsonify({'success':nodeReqAddSuccess})
+
+
+
+
+
+
+@app.route('/locking_module_remove_req_from_node_access_Q/',  methods=['POST'])
+def locking_module_remove_req_from_node_access_Q():
+	#get the request details
+	workflow_id = request.form['workflow_id']
+	#node module requestor
+	requestedBy = request.form['requestor']
+	#the requested node
+	nodeID = request.form['nodeID']
+
+
+	nodeReqRemoveSuccess = False
+	#get the request key for the corresponding workflow id
+	for row in views_by_workflow_locking_module(g.couch):
+		if row.key == workflow_id:
+			workflow_locking_doc = WorkflowLockingModule.load(row.value)
+
+			#add the node to the node_access_req_Q
+			workflow_locking_doc.node_access_req_Q.remove({'nodeID':nodeID, 'requestedBy': requestedBy})
+			#update the doc
+			workflow_locking_doc.store()
+			nodeReqRemoveSuccess = True
+			break
+
+
+	#return succuess/failure response
+	return jsonify({'success':nodeReqRemoveSuccess})
+
+
+
+
+
+
 
 
 
