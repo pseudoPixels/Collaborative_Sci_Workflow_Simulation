@@ -285,7 +285,7 @@ function releaseNodeAccess(collaboratorID, nodeID) {
   //release the node, in case its a valid request
   if (isValidNodeReleaseRequest(collaboratorID, theNode.data) == true) {
     //remove from the granted list
-    removeFromGrantedRequestList((collaboratorID, theNode.data));
+    removeFromGrantedRequestList(collaboratorID, theNode.data);
     //unlock the nodes in the workflow tree as well
     workflow.unlockThisNodeAndDescendants(nodeID, workflow.traverseDF);
 
@@ -368,7 +368,17 @@ function tryServingFromWaitingRequests() {
 
 
 
+function isTheNodeUserLocked(nodeID){
+    var isUserLocked = false;
 
+    for(var i=0; i < grantedNodeAccesses.length; i++){
+        if(grantedNodeAccesses[i]["node"] == nodeID){
+            isUserLocked = true;
+        }
+    }
+
+    return isUserLocked;
+}
 
 
 
@@ -390,7 +400,7 @@ var workflow_instructions = [
     ['3528', 'addModule', '5857', 'updateParam', '7376', 'updateDatalink', '9151', 'updateDatalink', '9291', 'updateDatalink', '9617', 'addModule', '5950', 'updateDatalink', '9503', 'updateParam', '2768', 'addModule', '4276', 'addModule', '7776', 'addModule', '9616', 'addModule', '4532', 'addModule', '3541', 'updateDatalink', '9285', 'updateDatalink', '2935', 'updateParam', '9663', 'addModule', '9699', 'updateParam', '2121', 'updateParam', '5814', 'updateDatalink', '5407', 'updateParam', '4522', 'updateDatalink', '3295', 'addModule', '8920', 'updateParam', '5831', 'updateDatalink', '5174', 'updateParam', '6344', 'addModule', '9640', 'updateDatalink', '7478', 'addModule', '9116', 'updateDatalink', '5484', 'updateDatalink', '5487', 'updateDatalink', '2027', 'updateDatalink', '4013', 'addModule', '4768', 'addModule', '4506', 'updateParam', '5947', 'addModule', '2643', 'addModule', '4244', 'updateDatalink', '4681', 'updateParam', '3151', 'updateDatalink', '6798', 'addModule', '3108', 'addModule', '6339', 'updateParam', '8657', 'updateParam', '4193', 'addModule', '3862', 'addModule', '9561', 'updateDatalink', '5240', 'updateParam', '6372', 'updateDatalink', '9468', 'updateDatalink', '4582', 'updateDatalink', '9092', 'updateDatalink', '7616', 'updateParam', '5511', 'addModule', '3202', 'addModule', '8474', 'addModule', '8846', 'updateDatalink', '7344', 'updateParam', '7192', 'updateDatalink', '7376', 'addModule', '2532', 'updateParam', '4257', 'addModule', '9697', 'updateParam', '6171', 'updateDatalink', '6597', 'updateParam', '8622', 'addModule', '5644', 'addModule', '7274', 'updateDatalink', '3324', 'updateDatalink', '2057', 'updateDatalink', '3151', 'updateParam', '5793', 'updateDatalink', '7266', 'addModule', '2578', 'addModule', '3928', 'addModule', '5191', 'updateDatalink', '6143', 'updateParam', '4757', 'updateParam', '8686', 'addModule', '9939', 'updateParam', '6760', 'updateParam', '8880', 'addModule', '7547', 'addModule', '3173', 'updateDatalink', '9904', 'updateDatalink', '3096', 'addModule', '3442', 'addModule', '5351', 'updateParam', '2253', 'updateDatalink', '2584', 'updateParam', '4524', 'addModule', '5908', 'addModule', '5286', 'addModule', '9701', 'addModule', '9571', 'updateParam', '7913', 'addModule', '5184', 'updateDatalink', '7141', 'updateParam', '2393', 'updateParam']
 ];
 
-var INSTRUCTIONS_PER_COLLABORATOR = 25;
+var INSTRUCTIONS_PER_COLLABORATOR = 5;
 
 
 
@@ -446,7 +456,43 @@ WorkflowCollaborator.prototype.removeAllMyAccessedNodes = function(){
             releaseNodeAccess(this.collaboratorID, grantedNodeAccesses[i]["node"]);
         }
     }
+
+    print_list(grantedNodeAccesses, "NEW GRANT LIST");
 };
+
+
+WorkflowCollaborator.prototype.getAllMyAccessedNodes = function(){
+    var myNodes = "";
+    for(var i=0; i<grantedNodeAccesses.length; i++){
+        //I had the access to this node
+        if(grantedNodeAccesses[i]["collaboratorID"] == this.collaboratorID){
+        //add this node to the list
+        myNodes += grantedNodeAccesses[i]["node"];
+
+        }
+    }
+
+    return myNodes;
+
+};
+
+
+
+//returns the node with higher Dependency degree that has not been user locked yet
+WorkflowCollaborator.prototype.getNodeWithHigherDependencyDegree = function(){
+    var theNode = "n1";//by default the root node, as it has the most dependency degree
+
+    for(var i=1;i<=NUM_OF_MODULES;i++){
+        if(isTheNodeUserLocked("n"+i.toString()) == false){
+            theNode = "n"+i.toString();
+            break;
+        }
+    }
+
+    return theNode;
+
+};
+
 
 
 WorkflowCollaborator.prototype.simulate = function() {
@@ -454,12 +500,13 @@ WorkflowCollaborator.prototype.simulate = function() {
     if(this.nextInstructionSerial <= INSTRUCTIONS_PER_COLLABORATOR){
         //I have access to at least one sub-workflow
         if(this.getCountsOfMyAccessNode()>0){
+            console.log("Node Counts : " + this.getCountsOfMyAccessNode() + " (Nodes: " + this.getAllMyAccessedNodes()+" )");
             if(this.nextInstructionSerial%2 == 0){//this phase is my thinking time
                 var thinkingTime = workflow_instructions[this.collaboratorID][this.nextInstructionSerial];
 
                 if(thinkingTime >= 5000){//if thinking time is too much, release floor for others
                     this.nextInstructionSerial++;
-                    console.log("NODE_ACCESS_RELEASED" + "_" + this.collaboratorID);
+                    console.log("NODE_ACCESS_RELEASED" + "_" + this.collaboratorID + " (Nodes: " + this.getAllMyAccessedNodes() +" )");
                     this.isAccessRequestedAlready = false;
                     this.removeAllMyAccessedNodes();
                     var me = this;
@@ -477,7 +524,7 @@ WorkflowCollaborator.prototype.simulate = function() {
                 }
 
             }else{//this phase is update time
-                  console.log("UPDATE" + "_" + this.collaboratorID);
+                  console.log("UPDATE" + "_" + this.collaboratorID + " (Nodes: " + this.getAllMyAccessedNodes() +" )");
                   this.nextInstructionSerial++; //lets try to move for next instruction
                   var me = this;
                   setTimeout(function() {
@@ -489,8 +536,11 @@ WorkflowCollaborator.prototype.simulate = function() {
         }else{//I dont have any access, so request for it
             if(this.isAccessRequestedAlready == false){//not requested yet..?, request access
                 this.isAccessRequestedAlready = true;
-                console.log("NODE_ACCESS_REQUESTED"+ "_" + this.collaboratorID);
-                newNodeAccessRequest(this.collaboratorID, "n1");//always requesting n1 (should behave as floor request), for testing
+                console.log("NODE_ACCESS_REQUESTED"+ "_" + this.collaboratorID + " (NodeID: " + this.getNodeWithHigherDependencyDegree() + ")");
+
+                //newNodeAccessRequest(this.collaboratorID, "n1");//always requesting n1 (should behave as floor request), for testing
+                newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree());//worst case, request always higher dependency degree
+
                 var me = this;
                 setTimeout(function() {
                     me.simulate();
