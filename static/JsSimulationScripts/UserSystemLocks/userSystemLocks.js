@@ -4,8 +4,9 @@
 function Node(data) {
   this.data = data;
   this.parent = null;
-  this.isLocked = false;
-  this.currentOwner = "NONE";
+  this.isUserLocked = false;
+  this.numOfSystemLocks = 0;//a node can be system locked multiple times, ZERO denotes no system lock currently
+  this.currentOwner = "";
   this.children = [];
 }
 
@@ -182,15 +183,19 @@ Tree.prototype.isNodeFloorAvailable = function(nodeData, traversal) {
     throw new Error('The requested node for access does not exist!');
   }
 
-  //if the node is itself locked, then its NOT available for the requested user
-  if (theNode.isLocked == true) return false;
 
-  //if the node itself is not locked, check if any of its children are locked or not
+
+  //if the node itself is user or system locked, then its NOT available for the requested user
+  if(theNode.isUserLocked == true || theNode.numOfSystemLocks >0)return false;
+
+
+
+  //if the node itself is not user or system locked, check if any of its children are USER locked or not
   //if any of them are locked, the access is NOT granted...
   var nodeFloorAvailability = true;
   this.traverseDF_FromNode(theNode, function(node) {
     //if any of its descendants are locked currently, the node access is not available
-    if (node.isLocked == true) nodeFloorAvailability = false;
+    if (node.isUserLocked == true) nodeFloorAvailability = false;
   });
 
 
@@ -199,20 +204,29 @@ Tree.prototype.isNodeFloorAvailable = function(nodeData, traversal) {
 }
 
 //someone has got the access to this node, so lock it and all its descendants
+//this node should be USER locked while, the descendants should be SYSTEM locked
 Tree.prototype.lockThisNodeAndDescendants = function(newOwner, nodeData, traversal) {
   var theNode = this.getNode(nodeData, traversal);
+  //USER lock this node
+  userLockNode(theNode, newOwner);
+  //all the descendent nodes should be SYSTEM locked
   this.traverseDF_FromNode(theNode, function(node) {
-    //use helper function to load this node for the corresponding user
-    lockNode(node, newOwner);
+    //except the root node of this sub-workflow (which is already USER locked)
+    //all the other descendant node should be SYSTEM locked
+    if(node.data != nodeData)systemLockNode(node);
+
   });
 }
 
 //someone has released the access to this node, so UNLOCK it and all its descendants
+//USER lock should be removed from the root of this sub-workflow and SYSTEM lock
+//should be reduced from the descendent nodes
 Tree.prototype.unlockThisNodeAndDescendants = function(nodeData, traversal) {
   var theNode = this.getNode(nodeData, traversal);
+  userUnlockNode(theNode);//remove the user lock from this root
   this.traverseDF_FromNode(theNode, function(node) {
-    //use the helper function to unlock the node.
-    unlockNode(node);
+        //except the root node, reduce SYSTEM locks from all its descendents
+        if(node.data != nodeData)systemUnlockNode(node);
   });
 }
 
@@ -231,15 +245,26 @@ function findIndex(arr, data) {
 }
 
 //HELPER FUNCTION: lock a given node with corresponding owner name
-function lockNode(node, nodeOwner) {
-  node.isLocked = true;
+function userLockNode(node, nodeOwner) {
+  node.isUserLocked = true;
   node.currentOwner = nodeOwner;
 }
 
-//HELPER FUNCTION: unlock a node
-function unlockNode(node) {
-  node.isLocked = false;
+function systemLockNode(node){
+    node.numOfSystemLocks++;
+    //node.currentOwner = nodeOwner;
+}
+
+
+//HELPER FUNCTION: user unlock a node
+function userUnlockNode(node) {
+  node.isUserLocked = false;
   node.currentOwner = "NONE";
+}
+//system unlocks nodes
+//each call reduces the number of system locks
+function systemUnlockNode(node){
+    node.numOfSystemLocks--;
 }
 
 //====================
@@ -295,8 +320,6 @@ function releaseNodeAccess(collaboratorID, nodeID) {
   } else {
     console.log("INVALID NODE ACCESS RELEASE REQUEST!");
   }
-
-
 
 
 }
@@ -400,7 +423,7 @@ var workflow_instructions = [
     ['3528', 'addModule', '5857', 'updateParam', '7376', 'updateDatalink', '9151', 'updateDatalink', '9291', 'updateDatalink', '9617', 'addModule', '5950', 'updateDatalink', '9503', 'updateParam', '2768', 'addModule', '4276', 'addModule', '7776', 'addModule', '9616', 'addModule', '4532', 'addModule', '3541', 'updateDatalink', '9285', 'updateDatalink', '2935', 'updateParam', '9663', 'addModule', '9699', 'updateParam', '2121', 'updateParam', '5814', 'updateDatalink', '5407', 'updateParam', '4522', 'updateDatalink', '3295', 'addModule', '8920', 'updateParam', '5831', 'updateDatalink', '5174', 'updateParam', '6344', 'addModule', '9640', 'updateDatalink', '7478', 'addModule', '9116', 'updateDatalink', '5484', 'updateDatalink', '5487', 'updateDatalink', '2027', 'updateDatalink', '4013', 'addModule', '4768', 'addModule', '4506', 'updateParam', '5947', 'addModule', '2643', 'addModule', '4244', 'updateDatalink', '4681', 'updateParam', '3151', 'updateDatalink', '6798', 'addModule', '3108', 'addModule', '6339', 'updateParam', '8657', 'updateParam', '4193', 'addModule', '3862', 'addModule', '9561', 'updateDatalink', '5240', 'updateParam', '6372', 'updateDatalink', '9468', 'updateDatalink', '4582', 'updateDatalink', '9092', 'updateDatalink', '7616', 'updateParam', '5511', 'addModule', '3202', 'addModule', '8474', 'addModule', '8846', 'updateDatalink', '7344', 'updateParam', '7192', 'updateDatalink', '7376', 'addModule', '2532', 'updateParam', '4257', 'addModule', '9697', 'updateParam', '6171', 'updateDatalink', '6597', 'updateParam', '8622', 'addModule', '5644', 'addModule', '7274', 'updateDatalink', '3324', 'updateDatalink', '2057', 'updateDatalink', '3151', 'updateParam', '5793', 'updateDatalink', '7266', 'addModule', '2578', 'addModule', '3928', 'addModule', '5191', 'updateDatalink', '6143', 'updateParam', '4757', 'updateParam', '8686', 'addModule', '9939', 'updateParam', '6760', 'updateParam', '8880', 'addModule', '7547', 'addModule', '3173', 'updateDatalink', '9904', 'updateDatalink', '3096', 'addModule', '3442', 'addModule', '5351', 'updateParam', '2253', 'updateDatalink', '2584', 'updateParam', '4524', 'addModule', '5908', 'addModule', '5286', 'addModule', '9701', 'addModule', '9571', 'updateParam', '7913', 'addModule', '5184', 'updateDatalink', '7141', 'updateParam', '2393', 'updateParam']
 ];
 
-var INSTRUCTIONS_PER_COLLABORATOR = 99;
+var INSTRUCTIONS_PER_COLLABORATOR = 25;
 
 
 
