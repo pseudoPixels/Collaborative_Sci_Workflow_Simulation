@@ -75,10 +75,10 @@
       <file leaf-file-name="StrictModuleLocking.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="605" column="14" lean-forward="true" selection-start-line="605" selection-start-column="14" selection-end-line="605" selection-end-column="14" />
+            <state relative-caret-position="523">
+              <caret line="559" column="0" lean-forward="true" selection-start-line="559" selection-start-column="0" selection-end-line="559" selection-end-column="0" />
               <folding>
-                <element signature="e#0#40016#0" expanded="false" />
+                <element signature="e#0#41164#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -96,7 +96,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>lockUnlockNode</find>
       <find>locking_module_get_next_module_id</find>
       <find>onWorkflowM</find>
       <find>onWorkflowModuleAdditionRequest</find>
@@ -126,6 +125,7 @@
       <find>newNodeAccessRequest</find>
       <find>releaseNodeAccess</find>
       <find>removeFromGrantedRequestList</find>
+      <find>isTheNodeUserLocked</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -866,10 +866,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="605" column="14" lean-forward="true" selection-start-line="605" selection-start-column="14" selection-end-line="605" selection-end-column="14" />
+        <state relative-caret-position="523">
+          <caret line="559" column="0" lean-forward="true" selection-start-line="559" selection-start-column="0" selection-end-line="559" selection-end-column="0" />
           <folding>
-            <element signature="e#0#40016#0" expanded="false" />
+            <element signature="e#0#41164#0" expanded="false" />
           </folding>
         </state>
       </provider>

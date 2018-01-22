@@ -368,11 +368,11 @@ function tryServingFromWaitingRequests() {
 
 
 
-function isTheNodeUserLocked(nodeID){
+function isTheNodeInThisList(theList, nodeID){
     var isUserLocked = false;
 
-    for(var i=0; i < grantedNodeAccesses.length; i++){
-        if(grantedNodeAccesses[i]["node"] == nodeID){
+    for(var i=0; i < theList.length; i++){
+        if(theList[i]["node"] == nodeID){
             isUserLocked = true;
         }
     }
@@ -479,11 +479,11 @@ WorkflowCollaborator.prototype.getAllMyAccessedNodes = function(){
 
 
 //returns the node with higher Dependency degree that has not been user locked yet
-WorkflowCollaborator.prototype.getNodeWithHigherDependencyDegree = function(){
+WorkflowCollaborator.prototype.getNodeWithHigherDependencyDegree_exceptUserLockedNode = function(){
     var theNode = "n1";//by default the root node, as it has the most dependency degree
 
     for(var i=1;i<=NUM_OF_MODULES;i++){
-        if(isTheNodeUserLocked("n"+i.toString()) == false){
+        if(isTheNodeInThisList(grantedNodeAccesses,"n"+i.toString()) == false){
             theNode = "n"+i.toString();
             break;
         }
@@ -492,6 +492,26 @@ WorkflowCollaborator.prototype.getNodeWithHigherDependencyDegree = function(){
     return theNode;
 
 };
+
+//returns the node with the higher dependency degree which has not been user locked or requested (waiting)
+//by any other collaborators
+WorkflowCollaborator.prototype.getNodeWithHigherDependencyDegree_exceptUserLockedAndWaitingNodes = function(){
+    var combinedList = grantedNodeAccesses.concat(waitingNodeAccessRequests);
+
+    var theNode = "n1";//by default the root node, as it has the most dependency degree in case all node has been taken
+
+    //iterate from higher to lower dependency degree
+    for(var i=1; i<=NUM_OF_MODULES; i++){
+        if(isTheNodeInThisList(combinedList, "n"+i.toString()) == false){
+            theNode = "n"+i.toString();
+            break;
+        }
+    }
+
+    return theNode;
+
+};
+
 
 
 
@@ -536,10 +556,15 @@ WorkflowCollaborator.prototype.simulate = function() {
         }else{//I dont have any access, so request for it
             if(this.isAccessRequestedAlready == false){//not requested yet..?, request access
                 this.isAccessRequestedAlready = true;
-                console.log("NODE_ACCESS_REQUESTED"+ "_" + this.collaboratorID + " (NodeID: " + this.getNodeWithHigherDependencyDegree() + ")");
+                console.log("NODE_ACCESS_REQUESTED"+ "_" + this.collaboratorID + " (NodeID: " + this.getNodeWithHigherDependencyDegree_exceptUserLockedAndWaitingNodes() + ")");
 
+                 //=====================
+                 //Different protocols for node access request for the simulation
+                 //uncomment as per the requirement
+                 //=====================
                 //newNodeAccessRequest(this.collaboratorID, "n1");//always requesting n1 (should behave as floor request), for testing
-                newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree());//worst case, request always higher dependency degree
+                //newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree_exceptUserLockedNode());//worst case, request always higher dependency degree
+                newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree_exceptUserLockedAndWaitingNodes());
 
                 var me = this;
                 setTimeout(function() {
