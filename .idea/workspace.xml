@@ -35,19 +35,31 @@
       <file leaf-file-name="workflow_simulation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+            <state relative-caret-position="330">
+              <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="userSystemLocks.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="userSystemLocks.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/UserSystemLocks/userSystemLocks.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="39">
-              <caret line="679" column="0" lean-forward="true" selection-start-line="679" selection-start-column="0" selection-end-line="679" selection-end-column="0" />
+            <state relative-caret-position="259">
+              <caret line="430" column="0" lean-forward="true" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StrictModuleLocking.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="534">
+              <caret line="598" column="13" lean-forward="true" selection-start-line="598" selection-start-column="13" selection-end-line="598" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#42869#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -64,9 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onWorkflowM</find>
-      <find>onWorkflowModuleAdditionRequest</find>
-      <find>onNewFloorRequest</find>
       <find>uncomm</find>
       <find>locking_module_is_node_locked</find>
       <find>isNodeLocked_srv</find>
@@ -94,6 +103,9 @@
       <find>newNodeAccessRequest</find>
       <find>releaseNodeAccess</find>
       <find>removeFromGrantedRequestList</find>
+      <find>traverseDF_FromNode</find>
+      <find>grantedNodeAccesses</find>
+      <find>print_list</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -134,10 +146,10 @@
         <option value="$PROJECT_DIR$/Js Simulation Scripts/Strict Module Locking/StrictModuleLocking.js" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/TurnBased/turnBased_withObjects.js" />
-        <option value="$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js" />
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js" />
-        <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/UserSystemLocks/userSystemLocks.js" />
+        <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
+        <option value="$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js" />
       </list>
     </option>
   </component>
@@ -239,6 +251,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="JsSimulationScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JsSimulationScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StrictModuleLocking" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -812,16 +846,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="11" column="16" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="715" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#42674#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -832,19 +856,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
+    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/UserSystemLocks/userSystemLocks.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="6" lean-forward="true" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+        <state relative-caret-position="259">
+          <caret line="430" column="0" lean-forward="true" selection-start-line="430" selection-start-column="0" selection-end-line="430" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/UserSystemLocks/userSystemLocks.js">
+    <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="39">
-          <caret line="679" column="0" lean-forward="true" selection-start-line="679" selection-start-column="0" selection-end-line="679" selection-end-column="0" />
+        <state relative-caret-position="330">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="598" column="13" lean-forward="true" selection-start-line="598" selection-start-column="13" selection-end-line="598" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#42869#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

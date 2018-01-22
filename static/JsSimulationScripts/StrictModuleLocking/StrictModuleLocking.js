@@ -400,7 +400,7 @@ var workflow_instructions = [
     ['3528', 'addModule', '5857', 'updateParam', '7376', 'updateDatalink', '9151', 'updateDatalink', '9291', 'updateDatalink', '9617', 'addModule', '5950', 'updateDatalink', '9503', 'updateParam', '2768', 'addModule', '4276', 'addModule', '7776', 'addModule', '9616', 'addModule', '4532', 'addModule', '3541', 'updateDatalink', '9285', 'updateDatalink', '2935', 'updateParam', '9663', 'addModule', '9699', 'updateParam', '2121', 'updateParam', '5814', 'updateDatalink', '5407', 'updateParam', '4522', 'updateDatalink', '3295', 'addModule', '8920', 'updateParam', '5831', 'updateDatalink', '5174', 'updateParam', '6344', 'addModule', '9640', 'updateDatalink', '7478', 'addModule', '9116', 'updateDatalink', '5484', 'updateDatalink', '5487', 'updateDatalink', '2027', 'updateDatalink', '4013', 'addModule', '4768', 'addModule', '4506', 'updateParam', '5947', 'addModule', '2643', 'addModule', '4244', 'updateDatalink', '4681', 'updateParam', '3151', 'updateDatalink', '6798', 'addModule', '3108', 'addModule', '6339', 'updateParam', '8657', 'updateParam', '4193', 'addModule', '3862', 'addModule', '9561', 'updateDatalink', '5240', 'updateParam', '6372', 'updateDatalink', '9468', 'updateDatalink', '4582', 'updateDatalink', '9092', 'updateDatalink', '7616', 'updateParam', '5511', 'addModule', '3202', 'addModule', '8474', 'addModule', '8846', 'updateDatalink', '7344', 'updateParam', '7192', 'updateDatalink', '7376', 'addModule', '2532', 'updateParam', '4257', 'addModule', '9697', 'updateParam', '6171', 'updateDatalink', '6597', 'updateParam', '8622', 'addModule', '5644', 'addModule', '7274', 'updateDatalink', '3324', 'updateDatalink', '2057', 'updateDatalink', '3151', 'updateParam', '5793', 'updateDatalink', '7266', 'addModule', '2578', 'addModule', '3928', 'addModule', '5191', 'updateDatalink', '6143', 'updateParam', '4757', 'updateParam', '8686', 'addModule', '9939', 'updateParam', '6760', 'updateParam', '8880', 'addModule', '7547', 'addModule', '3173', 'updateDatalink', '9904', 'updateDatalink', '3096', 'addModule', '3442', 'addModule', '5351', 'updateParam', '2253', 'updateDatalink', '2584', 'updateParam', '4524', 'addModule', '5908', 'addModule', '5286', 'addModule', '9701', 'addModule', '9571', 'updateParam', '7913', 'addModule', '5184', 'updateDatalink', '7141', 'updateParam', '2393', 'updateParam']
 ];
 
-var INSTRUCTIONS_PER_COLLABORATOR = 99;
+var INSTRUCTIONS_PER_COLLABORATOR = 25;
 
 
 
@@ -414,11 +414,18 @@ var workflow = new Tree('n1');
 workflow.add('n2', 'n1', workflow.traverseDF);
 workflow.add('n3', 'n1', workflow.traverseDF);
 workflow.add('n4', 'n2', workflow.traverseDF);
+workflow.add('n4', 'n3', workflow.traverseDF);
+
+/*
+workflow.add('n2', 'n1', workflow.traverseDF);
+workflow.add('n3', 'n1', workflow.traverseDF);
+workflow.add('n4', 'n2', workflow.traverseDF);
 workflow.add('n5', 'n2', workflow.traverseDF);
 workflow.add('n6', 'n3', workflow.traverseDF);
 workflow.add('n7', 'n3', workflow.traverseDF);
+*/
 
-var NUM_OF_MODULES = 7;
+var NUM_OF_MODULES = 4;
 
 
 

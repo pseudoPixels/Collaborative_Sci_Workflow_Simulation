@@ -437,11 +437,17 @@ var workflow = new Tree('n1');
 workflow.add('n2', 'n1', workflow.traverseDF);
 workflow.add('n3', 'n1', workflow.traverseDF);
 workflow.add('n4', 'n2', workflow.traverseDF);
+workflow.add('n4', 'n3', workflow.traverseDF);
+
+/*
+workflow.add('n2', 'n1', workflow.traverseDF);
+workflow.add('n3', 'n1', workflow.traverseDF);
+workflow.add('n4', 'n2', workflow.traverseDF);
 workflow.add('n5', 'n2', workflow.traverseDF);
 workflow.add('n6', 'n3', workflow.traverseDF);
 workflow.add('n7', 'n3', workflow.traverseDF);
-
-var NUM_OF_MODULES = 7;
+*/
+var NUM_OF_MODULES = 4;
 
 
 
@@ -699,12 +705,21 @@ print_list(grantedNodeAccesses, "Granted List");
 print_list(waitingNodeAccessRequests, "Waiting List");
 
 
-newNodeAccessRequest("c1", "n1");
-newNodeAccessRequest("c2", "n2");
+newNodeAccessRequest("c1", "n2");
+newNodeAccessRequest("c2", "n3");
 
 
 print_list(grantedNodeAccesses, "Granted List");
 print_list(waitingNodeAccessRequests, "Waiting List");
+
+
+newNodeAccessRequest("c3", "n4");
+
+print_list(grantedNodeAccesses, "Granted List");
+print_list(waitingNodeAccessRequests, "Waiting List");
+
+
+
 
 newNodeAccessRequest("c3", "n3");
 
