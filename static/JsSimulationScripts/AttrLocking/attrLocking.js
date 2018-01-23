@@ -4,8 +4,10 @@
 function Node(data) {
   this.data = data;
   this.parent = null;
-  this.isLocked = false;
-  this.currentOwner = "NONE";
+  this.isUserLocked = false;
+  this.numOfSystemLocks = 0;//a node can be system locked multiple times, ZERO denotes no system lock currently
+  this.currentOwner = "";
+  this.attributes = [false, false, false, false, false];//assuming five attr per module for simulation. each of them unlocked initially
   this.children = [];
 }
 
@@ -182,15 +184,19 @@ Tree.prototype.isNodeFloorAvailable = function(nodeData, traversal) {
     throw new Error('The requested node for access does not exist!');
   }
 
-  //if the node is itself locked, then its NOT available for the requested user
-  if (theNode.isLocked == true) return false;
 
-  //if the node itself is not locked, check if any of its children are locked or not
+
+  //if the node itself is user or system locked or any attributes locked, then its NOT available for the requested user
+  if(theNode.isUserLocked == true || theNode.numOfSystemLocks >0 || workflow.isAnyAttributeInLockedState(theNode)==true)return false;
+
+
+
+  //if the node itself is not user or system locked, check if any of its children are USER locked or not
   //if any of them are locked, the access is NOT granted...
   var nodeFloorAvailability = true;
   this.traverseDF_FromNode(theNode, function(node) {
     //if any of its descendants are locked currently, the node access is not available
-    if (node.isLocked == true) nodeFloorAvailability = false;
+    if (node.isUserLocked == true || workflow.isAnyAttributeInLockedState(node)==true) nodeFloorAvailability = false;
   });
 
 
@@ -198,21 +204,43 @@ Tree.prototype.isNodeFloorAvailable = function(nodeData, traversal) {
 
 }
 
+//takes a node and returns true if any of its attribute is in locked
+Tree.prototype.isAnyAttributeInLockedState = function(node){
+    var isInLockedState = false;
+    for(var i=0; i<5; i++){
+        if(node.attributes[i] == true){
+            isInLockedState = true;
+            break;
+        }
+    }
+    return isInLockedState;
+};
+
+
 //someone has got the access to this node, so lock it and all its descendants
+//this node should be USER locked while, the descendants should be SYSTEM locked
 Tree.prototype.lockThisNodeAndDescendants = function(newOwner, nodeData, traversal) {
   var theNode = this.getNode(nodeData, traversal);
+  //USER lock this node
+  userLockNode(theNode, newOwner);
+  //all the descendent nodes should be SYSTEM locked
   this.traverseDF_FromNode(theNode, function(node) {
-    //use helper function to load this node for the corresponding user
-    lockNode(node, newOwner);
+    //except the root node of this sub-workflow (which is already USER locked)
+    //all the other descendant node should be SYSTEM locked
+    if(node.data != nodeData)systemLockNode(node);
+
   });
 }
 
 //someone has released the access to this node, so UNLOCK it and all its descendants
+//USER lock should be removed from the root of this sub-workflow and SYSTEM lock
+//should be reduced from the descendent nodes
 Tree.prototype.unlockThisNodeAndDescendants = function(nodeData, traversal) {
   var theNode = this.getNode(nodeData, traversal);
+  userUnlockNode(theNode);//remove the user lock from this root
   this.traverseDF_FromNode(theNode, function(node) {
-    //use the helper function to unlock the node.
-    unlockNode(node);
+        //except the root node, reduce SYSTEM locks from all its descendents
+        if(node.data != nodeData)systemUnlockNode(node);
   });
 }
 
@@ -231,15 +259,26 @@ function findIndex(arr, data) {
 }
 
 //HELPER FUNCTION: lock a given node with corresponding owner name
-function lockNode(node, nodeOwner) {
-  node.isLocked = true;
+function userLockNode(node, nodeOwner) {
+  node.isUserLocked = true;
   node.currentOwner = nodeOwner;
 }
 
-//HELPER FUNCTION: unlock a node
-function unlockNode(node) {
-  node.isLocked = false;
+function systemLockNode(node){
+    node.numOfSystemLocks++;
+    //node.currentOwner = nodeOwner;
+}
+
+
+//HELPER FUNCTION: user unlock a node
+function userUnlockNode(node) {
+  node.isUserLocked = false;
   node.currentOwner = "NONE";
+}
+//system unlocks nodes
+//each call reduces the number of system locks
+function systemUnlockNode(node){
+    node.numOfSystemLocks--;
 }
 
 //====================
@@ -254,6 +293,10 @@ function unlockNode(node) {
 //Server Side vars and algorithms
 var grantedNodeAccesses = []; //{node,collaborator_id}
 var waitingNodeAccessRequests = []; //{node,collaborator_id}
+
+var grantedAttributeAccesses = [];//{nodeID, attrID, collaborator_id}
+var waitingAttributeAccessRequests = [];//{nodeID, attrID, collaborator_id}
+
 
 function newNodeAccessRequest(collaboratorID, nodeID) {
   var theNode = workflow.getNode(nodeID, workflow.traverseDF);
@@ -279,6 +322,37 @@ function newNodeAccessRequest(collaboratorID, nodeID) {
 }
 
 
+//locks/send to waiting Q, a node attribute
+function newAttributeAccessRequest(collaboratorID, nodeID, attrID){
+    var theNode = workflow.getNode(nodeID, workflow.traverseDF);
+
+    //if the node is not USER/SYSTEM locked and the attribute of the node is not locked
+    //then access can be granted. NOTE: only this node is checked (avoiding any descendent node checking)
+    if(theNode.isUserLocked==false && theNode.numOfSystemLocks==0 && theNode.attributes[parseInt(attrID)]==false){
+        //lock this attribute
+        theNode.attributes[parseInt(attrID)] = true;
+         var aGrantedAttributeAccess = {
+            "collaboratorID": collaboratorID,
+            "node": theNode.data,
+            "attrID" : parseInt(attrID)
+         };
+         grantedAttributeAccesses.push(aGrantedAttributeAccess);
+
+
+    }else{//some condition is not fulfilled for locking and hence need to wait...
+         var anWaitingAttributeAccess = {
+            "collaboratorID": collaboratorID,
+            "node": theNode.data,
+            "attrID" : parseInt(attrID)
+         };
+         waitingAttributeAccessRequests.push(anWaitingAttributeAccess);
+
+    }
+
+
+}
+
+
 function releaseNodeAccess(collaboratorID, nodeID) {
   var theNode = workflow.getNode(nodeID, workflow.traverseDF);
 
@@ -297,9 +371,28 @@ function releaseNodeAccess(collaboratorID, nodeID) {
   }
 
 
+}
 
+
+
+function releaseAttributeAccess(collaboratorID, nodeID, attrID){
+    var theNode = workflow.getNode(nodeID, workflow.traverseDF);
+
+    if(theNode.attributes[parseInt(attrID)] == true){
+        theNode.attributes[parseInt(attrID)] = false;//release the attribute for other collaborators
+        //finally, remove it from the granted list
+        removeFromGrantedRequestList_attributes(collaboratorID, nodeID, attrID);
+
+        //after this node release, check if any waiting request can be served...
+        tryServingFromWaitingRequests();
+
+    }else{
+        console.log("ERROR... NODE ALREADY RELEASED!");
+    }
 
 }
+
+
 
 
 //helper functions for node release
@@ -352,16 +445,83 @@ function removeFromWaitingList(collaborator, node) {
 
 
 
+
+
+function removeFromGrantedRequestList_attributes(collaborator, node, attrID) {
+  var tmpGrantedList = [];
+
+  for (var i = 0; i < grantedAttributeAccesses.length; i++) {
+    if (!(grantedAttributeAccesses[i]["collaboratorID"] == collaborator && grantedAttributeAccesses[i]["node"] == node && parseInt(grantedAttributeAccesses[i]["attrID"]) == parseInt(attrID))) {
+      tmpGrantedList.push(grantedAttributeAccesses[i]);
+    }
+  }
+
+  grantedAttributeAccesses = tmpGrantedList;
+
+}
+
+
+
+
+function removeFromWaitingList_attributes(collaborator, node, attrID) {
+  var tmpWaitingList = [];
+
+  for (var i = 0; i < waitingAttributeAccessRequests.length; i++) {
+    if (!(waitingAttributeAccessRequests[i]["collaboratorID"] == collaborator && waitingAttributeAccessRequests[i]["node"] == node && parseInt(waitingAttributeAccessRequests[i]["attrID"]) == parseInt(attrID))) {
+      tmpWaitingList.push(waitingAttributeAccessRequests[i]);
+    }
+  }
+
+  waitingAttributeAccessRequests = tmpWaitingList;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function tryServingFromWaitingRequests() {
   var tmpWaitingList = [];
 
+  //try serving the node (with dependency locking
   for (var i = 0; i < waitingNodeAccessRequests.length; i++) {
     if (workflow.isNodeFloorAvailable(waitingNodeAccessRequests[i]["node"], workflow.traverseDF) == true) {
-      //make this node request and it will be granted for sure
-      newNodeAccessRequest(waitingNodeAccessRequests[i]["collaboratorID"], waitingNodeAccessRequests[i]["node"]);
-      //remove the granted node request from the waiting list
-      removeFromWaitingList(waitingNodeAccessRequests[i]["collaboratorID"], waitingNodeAccessRequests[i]["node"]);
+          //make this node request and it will be granted for sure
+          newNodeAccessRequest(waitingNodeAccessRequests[i]["collaboratorID"], waitingNodeAccessRequests[i]["node"]);
+          //remove the granted node request from the waiting list
+          removeFromWaitingList(waitingNodeAccessRequests[i]["collaboratorID"], waitingNodeAccessRequests[i]["node"]);
     }
+  }
+
+
+
+  //try serving the waiting attribute locking request
+  for(var i=0; i<waitingAttributeAccessRequests.length; i++){
+        var collabID =  waitingAttributeAccessRequests[i]["collaboratorID"];
+        var nID = waitingAttributeAccessRequests[i]["node"];
+        var aID = parseInt( waitingAttributeAccessRequests[i]["attrID"] );
+
+        var theNode = workflow.getNode(nID, workflow.traverseDF);
+
+        //if the node is not currently SYSTEM, USER or ATTRIBUTE locked, the request can be granted...
+        if(theNode.isUserLocked()==false && theNode.numOfSystemLocks==0 && theNode.attributes[aID]==false){
+            //make this request (which is supposed to get accepted)
+            newAttributeAccessRequest(collabID, nID, aID);
+
+            //remove this granted request from the waiting list
+            removeFromWaitingList_attributes(collabID, nID, aID);
+        }
   }
 
 }
@@ -400,7 +560,7 @@ var workflow_instructions = [
     ['3528', 'addModule', '5857', 'updateParam', '7376', 'updateDatalink', '9151', 'updateDatalink', '9291', 'updateDatalink', '9617', 'addModule', '5950', 'updateDatalink', '9503', 'updateParam', '2768', 'addModule', '4276', 'addModule', '7776', 'addModule', '9616', 'addModule', '4532', 'addModule', '3541', 'updateDatalink', '9285', 'updateDatalink', '2935', 'updateParam', '9663', 'addModule', '9699', 'updateParam', '2121', 'updateParam', '5814', 'updateDatalink', '5407', 'updateParam', '4522', 'updateDatalink', '3295', 'addModule', '8920', 'updateParam', '5831', 'updateDatalink', '5174', 'updateParam', '6344', 'addModule', '9640', 'updateDatalink', '7478', 'addModule', '9116', 'updateDatalink', '5484', 'updateDatalink', '5487', 'updateDatalink', '2027', 'updateDatalink', '4013', 'addModule', '4768', 'addModule', '4506', 'updateParam', '5947', 'addModule', '2643', 'addModule', '4244', 'updateDatalink', '4681', 'updateParam', '3151', 'updateDatalink', '6798', 'addModule', '3108', 'addModule', '6339', 'updateParam', '8657', 'updateParam', '4193', 'addModule', '3862', 'addModule', '9561', 'updateDatalink', '5240', 'updateParam', '6372', 'updateDatalink', '9468', 'updateDatalink', '4582', 'updateDatalink', '9092', 'updateDatalink', '7616', 'updateParam', '5511', 'addModule', '3202', 'addModule', '8474', 'addModule', '8846', 'updateDatalink', '7344', 'updateParam', '7192', 'updateDatalink', '7376', 'addModule', '2532', 'updateParam', '4257', 'addModule', '9697', 'updateParam', '6171', 'updateDatalink', '6597', 'updateParam', '8622', 'addModule', '5644', 'addModule', '7274', 'updateDatalink', '3324', 'updateDatalink', '2057', 'updateDatalink', '3151', 'updateParam', '5793', 'updateDatalink', '7266', 'addModule', '2578', 'addModule', '3928', 'addModule', '5191', 'updateDatalink', '6143', 'updateParam', '4757', 'updateParam', '8686', 'addModule', '9939', 'updateParam', '6760', 'updateParam', '8880', 'addModule', '7547', 'addModule', '3173', 'updateDatalink', '9904', 'updateDatalink', '3096', 'addModule', '3442', 'addModule', '5351', 'updateParam', '2253', 'updateDatalink', '2584', 'updateParam', '4524', 'addModule', '5908', 'addModule', '5286', 'addModule', '9701', 'addModule', '9571', 'updateParam', '7913', 'addModule', '5184', 'updateDatalink', '7141', 'updateParam', '2393', 'updateParam']
 ];
 
-var INSTRUCTIONS_PER_COLLABORATOR = 99;
+var INSTRUCTIONS_PER_COLLABORATOR = 25;
 
 
 
@@ -414,11 +574,17 @@ var workflow = new Tree('n1');
 workflow.add('n2', 'n1', workflow.traverseDF);
 workflow.add('n3', 'n1', workflow.traverseDF);
 workflow.add('n4', 'n2', workflow.traverseDF);
+workflow.add('n4', 'n3', workflow.traverseDF);
+
+/*
+workflow.add('n2', 'n1', workflow.traverseDF);
+workflow.add('n3', 'n1', workflow.traverseDF);
+workflow.add('n4', 'n2', workflow.traverseDF);
 workflow.add('n5', 'n2', workflow.traverseDF);
 workflow.add('n6', 'n3', workflow.traverseDF);
 workflow.add('n7', 'n3', workflow.traverseDF);
-
-var NUM_OF_MODULES = 7;
+*/
+var NUM_OF_MODULES = 4;
 
 
 
@@ -650,7 +816,12 @@ function print_list(theList, listName) {
   console.log("PRINTING : " + listName + " ====> ");
 
   for (var i = 0; i < theList.length; i++) {
-    console.log("collab: " + theList[i]["collaboratorID"] + " node:" + theList[i]["node"]);
+    if(typeof theList[i]["attrID"] !== 'undefined'){
+        console.log("collab: " + theList[i]["collaboratorID"] + " node:" + theList[i]["node"] + " attrID:" + theList[i]["attrID"]);
+    }else{
+        console.log("collab: " + theList[i]["collaboratorID"] + " node:" + theList[i]["node"]);
+    }
+
   }
 }
 
@@ -663,11 +834,14 @@ var c2 = new WorkflowCollaborator(2,0);
 var c3 = new WorkflowCollaborator(3,0);
 var c4 = new WorkflowCollaborator(4,0);
 
-c0.simulate();
-c1.simulate();
-c2.simulate();
-c3.simulate();
-c4.simulate();
+
+
+
+//c0.simulate();
+//c1.simulate();
+//c2.simulate();
+//c3.simulate();
+//c4.simulate();
 
 
 
@@ -676,12 +850,21 @@ print_list(grantedNodeAccesses, "Granted List");
 print_list(waitingNodeAccessRequests, "Waiting List");
 
 
-newNodeAccessRequest("c1", "n1");
-newNodeAccessRequest("c2", "n2");
+newNodeAccessRequest("c1", "n2");
+newNodeAccessRequest("c2", "n3");
 
 
 print_list(grantedNodeAccesses, "Granted List");
 print_list(waitingNodeAccessRequests, "Waiting List");
+
+
+newNodeAccessRequest("c3", "n4");
+
+print_list(grantedNodeAccesses, "Granted List");
+print_list(waitingNodeAccessRequests, "Waiting List");
+
+
+
 
 newNodeAccessRequest("c3", "n3");
 
@@ -697,10 +880,22 @@ print_list(waitingNodeAccessRequests, "Waiting List");
 
 
 
+print_list(grantedNodeAccesses, "Granted List");
+print_list(grantedAttributeAccesses, "Granted Attribute List");
+print_list(waitingNodeAccessRequests, "Waiting List");
+print_list(waitingAttributeAccessRequests, "Waiting Attribute List");
 
 
+newNodeAccessRequest("c1", "n2");
+newNodeAccessRequest("c2", "n3");
+newAttributeAccessRequest("c1", "n1", 1);
+newAttributeAccessRequest("c1", "n1", 4);
+newNodeAccessRequest("c3", "n1");
 
-
+print_list(grantedNodeAccesses, "Granted List");
+print_list(grantedAttributeAccesses, "Granted Attribute List");
+print_list(waitingNodeAccessRequests, "Waiting List");
+print_list(waitingAttributeAccessRequests, "Waiting Attribute List");
 
 
 
