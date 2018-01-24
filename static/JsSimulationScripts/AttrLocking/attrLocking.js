@@ -548,7 +548,7 @@ function isTheNodeInThisList(theList, nodeID){
 //Workflow Simulation Instructions
 //upto 10 collaborators... each 100 instructions
 var workflow_instructions = [
-    ['5953', 'addModule', '6991', 'addModule', '8732', 'updateDatalink', '9887', 'addModule', '6847', 'updateParam', '9005', 'updateDatalink', '7692', 'addModule', '8226', 'updateParam', '2362', 'updateDatalink', '4907', 'updateDatalink', '8343', 'addModule', '8001', 'updateParam', '2638', 'updateDatalink', '6265', 'updateParam', '5606', 'addModule', '4795', 'updateDatalink', '3756', 'addModule', '4130', 'addModule', '3733', 'updateDatalink', '8193', 'updateDatalink', '9772', 'addModule', '7311', 'addModule', '8840', 'addModule', '6555', 'updateParam', '3745', 'addModule', '5665', 'updateParam', '2439', 'addModule', '8801', 'updateDatalink', '3774', 'addModule', '2372', 'updateParam', '7969', 'updateParam', '3193', 'addModule', '4021', 'updateParam', '3220', 'addModule', '2327', 'updateParam', '9113', 'updateParam', '8750', 'updateDatalink', '2882', 'updateParam', '8398', 'updateParam', '5849', 'updateParam', '7351', 'updateDatalink', '8204', 'addModule', '8590', 'updateParam', '2373', 'updateParam', '2379', 'updateDatalink', '2478', 'addModule', '7360', 'updateParam', '8120', 'addModule', '2580', 'updateParam', '2731', 'addModule', '2749', 'updateParam', '8774', 'updateParam', '4924', 'updateDatalink', '2000', 'addModule', '2914', 'updateParam', '3049', 'updateDatalink', '5634', 'updateDatalink', '4618', 'updateDatalink', '7656', 'addModule', '4467', 'updateDatalink', '8221', 'updateDatalink', '2492', 'addModule', '2951', 'updateParam', '8140', 'addModule', '4513', 'addModule', '4385', 'updateParam', '8487', 'addModule', '2552', 'updateParam', '8687', 'updateParam', '6200', 'addModule', '2187', 'updateDatalink', '2344', 'addModule', '8299', 'updateParam', '6255', 'updateDatalink', '9749', 'updateDatalink', '6086', 'addModule', '8316', 'updateParam', '9572', 'updateParam', '7168', 'addModule', '7068', 'updateDatalink', '8149', 'addModule', '5153', 'addModule', '4276', 'updateDatalink', '9075', 'updateDatalink', '7681', 'addModule', '4263', 'updateDatalink', '5266', 'updateParam', '7172', 'updateParam', '2301', 'addModule', '3709', 'updateDatalink', '6230', 'addModule', '5481', 'updateParam', '6933', 'updateParam', '2126', 'updateParam', '5684', 'updateParam', '7968', 'updateDatalink', '5069', 'updateDatalink', '5255', 'updateDatalink', '4103', 'addModule', '6219', 'updateDatalink'],
+    ['5953', 'updateParam', '6991', 'addModule', '8732', 'updateDatalink', '9887', 'addModule', '6847', 'updateParam', '9005', 'updateDatalink', '7692', 'addModule', '8226', 'updateParam', '2362', 'updateDatalink', '4907', 'updateDatalink', '8343', 'addModule', '8001', 'updateParam', '2638', 'updateDatalink', '6265', 'updateParam', '5606', 'addModule', '4795', 'updateDatalink', '3756', 'addModule', '4130', 'addModule', '3733', 'updateDatalink', '8193', 'updateDatalink', '9772', 'addModule', '7311', 'addModule', '8840', 'addModule', '6555', 'updateParam', '3745', 'addModule', '5665', 'updateParam', '2439', 'addModule', '8801', 'updateDatalink', '3774', 'addModule', '2372', 'updateParam', '7969', 'updateParam', '3193', 'addModule', '4021', 'updateParam', '3220', 'addModule', '2327', 'updateParam', '9113', 'updateParam', '8750', 'updateDatalink', '2882', 'updateParam', '8398', 'updateParam', '5849', 'updateParam', '7351', 'updateDatalink', '8204', 'addModule', '8590', 'updateParam', '2373', 'updateParam', '2379', 'updateDatalink', '2478', 'addModule', '7360', 'updateParam', '8120', 'addModule', '2580', 'updateParam', '2731', 'addModule', '2749', 'updateParam', '8774', 'updateParam', '4924', 'updateDatalink', '2000', 'addModule', '2914', 'updateParam', '3049', 'updateDatalink', '5634', 'updateDatalink', '4618', 'updateDatalink', '7656', 'addModule', '4467', 'updateDatalink', '8221', 'updateDatalink', '2492', 'addModule', '2951', 'updateParam', '8140', 'addModule', '4513', 'addModule', '4385', 'updateParam', '8487', 'addModule', '2552', 'updateParam', '8687', 'updateParam', '6200', 'addModule', '2187', 'updateDatalink', '2344', 'addModule', '8299', 'updateParam', '6255', 'updateDatalink', '9749', 'updateDatalink', '6086', 'addModule', '8316', 'updateParam', '9572', 'updateParam', '7168', 'addModule', '7068', 'updateDatalink', '8149', 'addModule', '5153', 'addModule', '4276', 'updateDatalink', '9075', 'updateDatalink', '7681', 'addModule', '4263', 'updateDatalink', '5266', 'updateParam', '7172', 'updateParam', '2301', 'addModule', '3709', 'updateDatalink', '6230', 'addModule', '5481', 'updateParam', '6933', 'updateParam', '2126', 'updateParam', '5684', 'updateParam', '7968', 'updateDatalink', '5069', 'updateDatalink', '5255', 'updateDatalink', '4103', 'addModule', '6219', 'updateDatalink'],
     ['5698', 'addModule', '2240', 'addModule', '6484', 'updateDatalink', '5599', 'updateDatalink', '5841', 'addModule', '9069', 'updateParam', '7929', 'addModule', '9624', 'updateDatalink', '5352', 'addModule', '7367', 'updateDatalink', '7020', 'updateParam', '2276', 'updateDatalink', '2837', 'addModule', '6400', 'addModule', '3467', 'updateParam', '3757', 'addModule', '9430', 'updateDatalink', '2190', 'addModule', '7774', 'addModule', '5416', 'addModule', '2575', 'updateDatalink', '9544', 'updateParam', '9520', 'updateDatalink', '4278', 'updateDatalink', '4807', 'addModule', '3087', 'addModule', '6640', 'addModule', '2573', 'addModule', '7533', 'addModule', '7293', 'updateDatalink', '7707', 'addModule', '4276', 'updateDatalink', '3811', 'updateDatalink', '7514', 'addModule', '7215', 'addModule', '8629', 'updateDatalink', '2139', 'addModule', '2015', 'addModule', '5856', 'updateDatalink', '8674', 'addModule', '5225', 'updateDatalink', '3003', 'addModule', '3802', 'updateDatalink', '2790', 'updateDatalink', '9777', 'addModule', '2659', 'updateParam', '6991', 'addModule', '3218', 'updateParam', '3282', 'updateDatalink', '8167', 'updateParam', '6404', 'addModule', '9596', 'updateParam', '5784', 'addModule', '9750', 'addModule', '2345', 'addModule', '3486', 'addModule', '4670', 'updateDatalink', '9695', 'addModule', '9728', 'updateDatalink', '3911', 'addModule', '6448', 'updateDatalink', '8391', 'updateDatalink', '4352', 'addModule', '7882', 'addModule', '5530', 'addModule', '3355', 'updateDatalink', '2185', 'updateParam', '7931', 'updateParam', '6012', 'addModule', '9266', 'addModule', '7647', 'updateDatalink', '6639', 'updateDatalink', '8456', 'updateDatalink', '2993', 'updateDatalink', '6889', 'updateParam', '4174', 'updateParam', '9672', 'updateDatalink', '9632', 'updateDatalink', '6072', 'updateParam', '6817', 'updateParam', '7496', 'updateParam', '9533', 'updateDatalink', '2655', 'updateParam', '8493', 'updateDatalink', '2575', 'addModule', '2330', 'updateDatalink', '9670', 'updateParam', '9306', 'updateParam', '5149', 'updateDatalink', '3977', 'addModule', '5004', 'addModule', '7065', 'addModule', '6825', 'updateParam', '8775', 'addModule', '5686', 'updateParam', '9821', 'updateParam', '5368', 'updateDatalink', '4405', 'addModule', '3159', 'updateParam', '5395', 'updateParam'],
     ['5443', 'addModule', '5489', 'addModule', '4236', 'addModule', '9311', 'updateDatalink', '4835', 'updateDatalink', '9134', 'updateParam', '8167', 'updateDatalink', '3021', 'addModule', '8342', 'updateParam', '9827', 'updateParam', '5697', 'updateDatalink', '4551', 'addModule', '3036', 'updateParam', '6534', 'updateParam', '9328', 'updateDatalink', '2719', 'updateDatalink', '7105', 'addModule', '8250', 'updateDatalink', '3815', 'updateParam', '2639', 'updateDatalink', '3379', 'updateParam', '3777', 'updateParam', '2199', 'addModule', '2000', 'updateDatalink', '5869', 'updateDatalink', '8509', 'addModule', '2840', 'addModule', '4346', 'addModule', '3291', 'addModule', '4213', 'updateDatalink', '7446', 'updateParam', '5360', 'addModule', '3602', 'updateParam', '3808', 'updateDatalink', '4104', 'addModule', '8143', 'updateParam', '3528', 'updateParam', '9148', 'addModule', '3313', 'updateDatalink', '3498', 'addModule', '3098', 'updateParam', '5803', 'updateParam', '7015', 'updateDatalink', '3208', 'updateParam', '9175', 'addModule', '2839', 'updateDatalink', '6623', 'updateDatalink', '6318', 'updateParam', '3982', 'addModule', '5603', 'updateParam', '2058', 'updateParam', '2418', 'updateParam', '6643', 'updateParam', '9499', 'addModule', '9777', 'addModule', '3924', 'addModule', '3705', 'updateParam', '6772', 'updateDatalink', '3801', 'updateParam', '3356', 'updateParam', '4675', 'updateDatalink', '6290', 'updateParam', '5752', 'updateParam', '7625', 'updateDatalink', '6546', 'addModule', '2324', 'addModule', '3884', 'updateParam', '5308', 'updateParam', '3337', 'updateParam', '4331', 'updateParam', '5107', 'updateParam', '2934', 'updateDatalink', '8613', 'updateParam', '7731', 'addModule', '4029', 'addModule', '2263', 'addModule', '3027', 'updateParam', '9693', 'updateDatalink', '4976', 'updateParam', '6567', 'updateDatalink', '6842', 'updateParam', '5912', 'updateParam', '9035', 'updateParam', '7911', 'updateParam', '5469', 'updateDatalink', '8398', 'updateParam', '6073', 'updateParam', '3439', 'updateDatalink', '7996', 'updateParam', '4245', 'addModule', '3778', 'addModule', '8648', 'updateParam', '6717', 'updateParam', '7423', 'updateParam', '5688', 'addModule', '3674', 'addModule', '5668', 'updateParam', '3556', 'addModule', '2216', 'addModule', '4572', 'updateDatalink'],
     ['5188', 'addModule', '8738', 'updateParam', '9988', 'addModule', '5023', 'updateDatalink', '3829', 'updateDatalink', '9198', 'addModule', '8405', 'updateDatalink', '4419', 'updateParam', '3332', 'updateDatalink', '4286', 'addModule', '4375', 'addModule', '6826', 'updateParam', '3236', 'updateParam', '6668', 'addModule', '7189', 'updateParam', '9682', 'updateParam', '4779', 'addModule', '6310', 'updateDatalink', '7856', 'addModule', '7863', 'updateDatalink', '4183', 'addModule', '6009', 'updateParam', '2878', 'updateParam', '7723', 'updateParam', '6930', 'addModule', '5931', 'updateDatalink', '7041', 'updateParam', '6119', 'updateParam', '7049', 'updateDatalink', '9133', 'addModule', '7184', 'updateDatalink', '6444', 'addModule', '3392', 'updateDatalink', '8102', 'addModule', '8993', 'updateDatalink', '7659', 'updateDatalink', '4917', 'updateDatalink', '8280', 'addModule', '8771', 'updateDatalink', '6323', 'addModule', '8972', 'updateParam', '8602', 'updateDatalink', '2227', 'updateDatalink', '3625', 'updateParam', '8572', 'addModule', '3020', 'updateDatalink', '6255', 'addModule', '9417', 'updateParam', '4684', 'updateParam', '3039', 'updateParam', '5713', 'addModule', '3240', 'addModule', '7503', 'updateDatalink', '9248', 'addModule', '9208', 'updateDatalink', '4361', 'updateDatalink', '2741', 'updateParam', '3848', 'updateParam', '5873', 'addModule', '2801', 'addModule', '2901', 'updateDatalink', '4189', 'updateParam', '7153', 'updateDatalink', '7368', 'updateDatalink', '7563', 'addModule', '9294', 'updateParam', '5582', 'addModule', '2687', 'addModule', '8662', 'addModule', '7397', 'updateParam', '2567', 'updateDatalink', '7230', 'updateParam', '8770', 'updateDatalink', '4469', 'updateDatalink', '9169', 'updateParam', '8352', 'updateParam', '4382', 'updateDatalink', '9753', 'updateDatalink', '3880', 'updateDatalink', '6316', 'addModule', '6188', 'updateDatalink', '2292', 'updateDatalink', '7414', 'updateDatalink', '7329', 'updateParam', '8363', 'updateDatalink', '6465', 'addModule', '2476', 'updateParam', '5573', 'updateParam', '2843', 'updateParam', '4513', 'updateParam', '2552', 'addModule', '2231', 'updateParam', '6610', 'updateParam', '6072', 'addModule', '5690', 'addModule', '5527', 'addModule', '5967', 'addModule', '2706', 'updateParam', '9273', 'updateParam', '3748', 'updateDatalink'],
@@ -616,6 +616,16 @@ WorkflowCollaborator.prototype.getCountsOfMyAccessNode = function(){
     return nodeCount;
 };
 
+//helper function for counting total attributes owned/accessed by this collaborator
+WorkflowCollaborator.prototype.getCountsOfMyAccessAttributes = function(){
+    var attrCount = 0;
+    for(var i=0; i<grantedAttributeAccesses.length; i++){
+        if(grantedAttributeAccesses[i]["collaboratorID"] == this.collaboratorID)attrCount++;
+    }
+
+    return attrCount;
+};
+
 
 
 WorkflowCollaborator.prototype.removeAllMyAccessedNodes = function(){
@@ -631,6 +641,23 @@ WorkflowCollaborator.prototype.removeAllMyAccessedNodes = function(){
 };
 
 
+
+
+WorkflowCollaborator.prototype.removeAllMyAccessedAttributes = function(){
+    for(var i=0; i<grantedAttributeAccesses.length; i++){
+        //if this collaborator has the access to the attribute
+        if(grantedAttributeAccesses[i]["collaboratorID"] == this.collaboratorID){
+            releaseAttributeAccess(this.collaboratorID, grantedAttributeAccesses[i]["node"], grantedAttributeAccesses[i]["attrID"]);
+        }
+    }
+
+    print_list(grantedAttributeAccesses, "NEW ATTRIBUTE GRANT LIST");
+
+};
+
+
+
+
 WorkflowCollaborator.prototype.getAllMyAccessedNodes = function(){
     var myNodes = "";
     for(var i=0; i<grantedNodeAccesses.length; i++){
@@ -644,6 +671,22 @@ WorkflowCollaborator.prototype.getAllMyAccessedNodes = function(){
 
     return myNodes;
 
+};
+
+
+
+WorkflowCollaborator.prototype.getAllMyAccessedAttributes = function(){
+    var myAttrs = "";
+    for(var i=0; i<grantedAttributeAccesses.length; i++){
+        //I had the access to this node
+        if(grantedAttributeAccesses[i]["collaboratorID"] == this.collaboratorID){
+            //add this attr to the list
+            myAttrs = myAttrs + grantedAttributeAccesses[i]["node"] + "_" + grantedAttributeAccesses[i]["attrID"] + " ";
+
+        }
+    }
+
+    return myAttrs;
 };
 
 
@@ -730,16 +773,26 @@ WorkflowCollaborator.prototype.simulate = function() {
     //do I have any instruction left to exec.
     if(this.nextInstructionSerial <= INSTRUCTIONS_PER_COLLABORATOR){
         //I have access to at least one sub-workflow
-        if(this.getCountsOfMyAccessNode()>0){
-            console.log("Node Counts : " + this.getCountsOfMyAccessNode() + " (Nodes: " + this.getAllMyAccessedNodes()+" )");
+        if(this.getCountsOfMyAccessNode()>0 || this.getCountsOfMyAccessAttributes()>0){
+            //console.log("Node Counts : " + this.getCountsOfMyAccessNode() + " (Nodes: " + this.getAllMyAccessedNodes()+" )");
             if(this.nextInstructionSerial%2 == 0){//this phase is my thinking time
                 var thinkingTime = workflow_instructions[this.collaboratorID][this.nextInstructionSerial];
 
                 if(thinkingTime >= 5000){//if thinking time is too much, release floor for others
                     this.nextInstructionSerial++;
-                    console.log("NODE_ACCESS_RELEASED" + "_" + this.collaboratorID + " (Nodes: " + this.getAllMyAccessedNodes() +" )");
                     this.isAccessRequestedAlready = false;
-                    this.removeAllMyAccessedNodes();
+
+                    if(this.getCountsOfMyAccessNode() > 0){
+                        this.removeAllMyAccessedNodes();//remove accessed nodes for this collaborator
+                        console.log("NODE_ACCESS_RELEASED" + "_" + this.collaboratorID + " (Nodes: " + this.getAllMyAccessedNodes() +" )");
+                    }
+                    if(this.getCountsOfMyAccessAttributes() > 0){
+                        this.removeAllMyAccessedAttributes();//remove accessed attributes for this collaborator
+                        console.log("ATTRIBUTE_ACCESS_RELEASED" + "_" + this.collaboratorID + " (Attrs: " + this.getAllMyAccessedAttributes() +" )");
+                    }
+
+
+
                     var me = this;
                     setTimeout(function() {
                       me.simulate();
@@ -755,7 +808,16 @@ WorkflowCollaborator.prototype.simulate = function() {
                 }
 
             }else{//this phase is update time
-                  console.log("UPDATE" + "_" + this.collaboratorID + " (Nodes: " + this.getAllMyAccessedNodes() +" )");
+                if(this.getCountsOfMyAccessNode() > 0){
+                    console.log("UPDATE" + "_" + this.collaboratorID + " (Nodes: " + this.getAllMyAccessedNodes() +" )");
+                }
+                if(this.getCountsOfMyAccessAttributes() > 0){
+                    console.log("UPDATE" + "_" + this.collaboratorID + " (Attrs: " + this.getAllMyAccessedAttributes() +" )");
+                }
+
+
+
+
                   this.nextInstructionSerial++; //lets try to move for next instruction
                   var me = this;
                   setTimeout(function() {
@@ -767,17 +829,38 @@ WorkflowCollaborator.prototype.simulate = function() {
         }else{//I dont have any access, so request for it
             if(this.isAccessRequestedAlready == false){//not requested yet..?, request access
                 this.isAccessRequestedAlready = true;
-                console.log("NODE_ACCESS_REQUESTED"+ "_" + this.collaboratorID + " (NodeID: " + this.getNodeWithLowerDependencyDegree_exceptUserLockedAndWaitingNodes() + ")");
 
-                //=====================
-                //Different protocols for node access request for the simulation
-                //uncomment as per the requirement
-                //=====================
-                //newNodeAccessRequest(this.collaboratorID, "n1");//always requesting n1 (should behave as floor request), for testing
-                //newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree_exceptUserLockedNode());//worst case, request always higher dependency degree
-                //newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree_exceptUserLockedAndWaitingNodes());
-                newNodeAccessRequest(this.collaboratorID, this.getNodeWithLowerDependencyDegree_exceptUserLockedNode());
-                //newNodeAccessRequest(this.collaboratorID, this.getNodeWithLowerDependencyDegree_exceptUserLockedAndWaitingNodes());
+                //we need to know about the next istruction to be executed (NOT thinking time)
+                //if the next instruction is updateParam, we request attribute locks
+                //otherwise, request node locks
+                var tmpNextInstruction = this.nextInstructionSerial;
+                if(tmpNextInstruction%2==0)tmpNextInstruction++;//make sure its not thinking phase
+                if(tmpNextInstruction>INSTRUCTIONS_PER_COLLABORATOR)tmpNextInstruction = INSTRUCTIONS_PER_COLLABORATOR;
+
+                //need to request attribute locking
+                if(workflow_instructions[this.collaboratorID][tmpNextInstruction] == 'updateParam'){
+                    console.log("ATTRIBUTE_ACCESS_REQUESTED"+ "_" + this.collaboratorID);
+
+                    newAttributeAccessRequest(this.collaboratorID, "n1", getRandomInt(0,5) );//for testing, requesting attribute of node 1
+
+
+                }else{//need to request for attribute locking
+                    console.log("NODE_ACCESS_REQUESTED"+ "_" + this.collaboratorID + " (NodeID: " + this.getNodeWithLowerDependencyDegree_exceptUserLockedAndWaitingNodes() + ")");
+
+                    //=====================
+                    //Different protocols for node access request for the simulation
+                    //uncomment as per the requirement
+                    //=====================
+                    //newNodeAccessRequest(this.collaboratorID, "n1");//always requesting n1 (should behave as floor request), for testing
+                    //newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree_exceptUserLockedNode());//worst case, request always higher dependency degree
+                    //newNodeAccessRequest(this.collaboratorID, this.getNodeWithHigherDependencyDegree_exceptUserLockedAndWaitingNodes());
+                    newNodeAccessRequest(this.collaboratorID, this.getNodeWithLowerDependencyDegree_exceptUserLockedNode());
+                    //newNodeAccessRequest(this.collaboratorID, this.getNodeWithLowerDependencyDegree_exceptUserLockedAndWaitingNodes());
+                }
+
+
+
+
 
                 var me = this;
                 setTimeout(function() {
@@ -797,7 +880,8 @@ WorkflowCollaborator.prototype.simulate = function() {
 
     }else{//done with executing all the instructions
         console.log("END"+ "_" + this.collaboratorID);
-        this.removeAllMyAccessedNodes();
+        this.removeAllMyAccessedNodes();//remove accessed nodes for this collaborator
+        this.removeAllMyAccessedAttributes();//remove accessed attributes for this collaborator
     }
 
 
@@ -836,15 +920,15 @@ function print_list(theList, listName) {
 //collaborators
 var c0 = new WorkflowCollaborator(0,0);
 var c1 = new WorkflowCollaborator(1,0);
-var c2 = new WorkflowCollaborator(2,0);
-var c3 = new WorkflowCollaborator(3,0);
-var c4 = new WorkflowCollaborator(4,0);
+//var c2 = new WorkflowCollaborator(2,0);
+//var c3 = new WorkflowCollaborator(3,0);
+//var c4 = new WorkflowCollaborator(4,0);
 
 
 
 
-//c0.simulate();
-//c1.simulate();
+c0.simulate();
+c1.simulate();
 //c2.simulate();
 //c3.simulate();
 //c4.simulate();
@@ -885,7 +969,7 @@ print_list(waitingNodeAccessRequests, "Waiting List");
 
 
 
-
+/*
 print_list(grantedNodeAccesses, "Granted List");
 print_list(grantedAttributeAccesses, "Granted Attribute List");
 print_list(waitingNodeAccessRequests, "Waiting List");
@@ -903,7 +987,7 @@ print_list(grantedAttributeAccesses, "Granted Attribute List");
 print_list(waitingNodeAccessRequests, "Waiting List");
 print_list(waitingAttributeAccessRequests, "Waiting Attribute List");
 
-
+*/
 
 
 

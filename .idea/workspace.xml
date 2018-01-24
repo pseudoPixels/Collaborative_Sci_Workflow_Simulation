@@ -45,8 +45,8 @@
       <file leaf-file-name="attrLocking.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="766" column="9" lean-forward="true" selection-start-line="766" selection-start-column="9" selection-end-line="766" selection-end-column="9" />
+            <state relative-caret-position="479">
+              <caret line="927" column="0" lean-forward="true" selection-start-line="927" selection-start-column="0" selection-end-line="927" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -64,10 +64,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onFloorOwnerChanged</find>
-      <find>node_access_release</find>
-      <find>onNodeAccessRelease</find>
-      <find>dispatchNode</find>
       <find>locking_turn_release_floor</find>
       <find>removeRequestFromQueue</find>
       <find>onNodeAccessRequest</find>
@@ -78,8 +74,6 @@
       <find>lockth</find>
       <find>dispatchNodeRequests</find>
       <find>unlockThisNodeAndDescendants</find>
-      <find>getAllMyAccessedNodes</find>
-      <find>removeAllMyAccessedNodes</find>
       <find>isTheNodeUserLocked</find>
       <find>isLocked</find>
       <find>releaseNodeAccess</find>
@@ -94,6 +88,12 @@
       <find>isAnyAttributeInLockedState</find>
       <find>isUserLocked</find>
       <find>newAttributeAccessRequest</find>
+      <find>updateDatalink</find>
+      <find>removeAllMyAccessedNodes</find>
+      <find>releaseAttributeAccess</find>
+      <find>getCountsOfMyAccessNode</find>
+      <find>getAllMyAccessedNodes</find>
+      <find>removeAllMyAccessedAttributes</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -884,8 +884,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="766" column="9" lean-forward="true" selection-start-line="766" selection-start-column="9" selection-end-line="766" selection-end-column="9" />
+        <state relative-caret-position="479">
+          <caret line="927" column="0" lean-forward="true" selection-start-line="927" selection-start-column="0" selection-end-line="927" selection-end-column="0" />
           <folding />
         </state>
       </provider>
