@@ -588,7 +588,11 @@ var NUM_OF_MODULES = 4;
 
 
 
-
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
+}
 
 
 
@@ -717,7 +721,9 @@ WorkflowCollaborator.prototype.getNodeWithLowerDependencyDegree_exceptUserLocked
 };
 
 
-
+WorkflowCollaborator.prototype.getRandomModule = function(){
+    return "n"+getRandomInt(1, NUM_OF_MODULES+1).toString();
+};
 
 
 WorkflowCollaborator.prototype.simulate = function() {
