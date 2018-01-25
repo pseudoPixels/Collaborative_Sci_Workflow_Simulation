@@ -1544,9 +1544,10 @@ def chat():
 ################################################################
 ################# SIMULATION STARTS HERE #######################
 ################################################################
-@app.route('/workflow_simulation')
-def workflow_simulation():
-   return render_template('workflow_simulation.html')
+@app.route('/workflow_simulation/<int:num_collabs>', methods=['GET'])
+def workflow_simulation(num_collabs):
+   num_collabs = num_collabs;
+   return render_template('workflow_simulation.html', num_collabs=num_collabs)
 
 
 

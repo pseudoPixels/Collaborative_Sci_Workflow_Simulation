@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>Workflow Simulation</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     <script type="text/javascript"
-            src="{{ url_for('static',filename='JsSimulationScripts/AttrLocking/attrLocking.js') }}"></script>
+            src="{{ url_for('static',filename='Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js') }}"></script>
 
 </head>
 <body>
 
 <h2> Workflow Simulation Script Running... </h2>
-
+Number Of Collaborators : <p id="num_collabs">{{ num_collabs }}</p>
 
 </body>
 </html>
