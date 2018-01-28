@@ -45,10 +45,10 @@
       <file leaf-file-name="updates_StrictModuleLocking_LinearW.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="694" column="0" lean-forward="true" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
+            <state relative-caret-position="177">
+              <caret line="474" column="0" lean-forward="true" selection-start-line="474" selection-start-column="0" selection-end-line="474" selection-end-column="0" />
               <folding>
-                <element signature="e#0#121145#0" expanded="false" />
+                <element signature="e#0#121176#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -925,10 +925,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="694" column="0" lean-forward="true" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
+        <state relative-caret-position="177">
+          <caret line="474" column="0" lean-forward="true" selection-start-line="474" selection-start-column="0" selection-end-line="474" selection-end-column="0" />
           <folding>
-            <element signature="e#0#121145#0" expanded="false" />
+            <element signature="e#0#121176#0" expanded="false" />
           </folding>
         </state>
       </provider>

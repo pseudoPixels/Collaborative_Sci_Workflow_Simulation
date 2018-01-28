@@ -684,7 +684,7 @@ WorkflowCollaborator.prototype.simulate = function() {
         if(numOfDoneCollabs == nextNumOfCollab-1){
             numOfDoneCollabs = 0;
 
-            if(nextNumOfCollab >2){
+            if(nextNumOfCollab >19){
                 alert("Done : " + nextNumOfCollab);
             }else{
                 run_simulation_steps(nextNumOfCollab);
@@ -707,7 +707,7 @@ WorkflowCollaborator.prototype.simulate = function() {
 
 
 
-console.log("Tasks: 25; Collaborators: 1");
+console.log("Tasks: 25; Collaborators: 1    =========================>");
 var c0 = new WorkflowCollaborator(0, 0);
 c0.simulate();
 nextNumOfCollab++;
