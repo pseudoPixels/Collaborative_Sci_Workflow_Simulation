@@ -35,38 +35,30 @@
       <file leaf-file-name="workflow_simulation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state relative-caret-position="264">
+              <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="updates_per_collab.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="updates_StrictModuleLocking_LinearW.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="463">
+              <caret line="694" column="0" lean-forward="true" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#121145#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updates_per_collab.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="402">
-              <caret line="510" column="0" lean-forward="true" selection-start-line="510" selection-start-column="0" selection-end-line="510" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3_collab_25_tasks.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/3_collab_25_tasks.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2_collab_25_tasks.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/2_collab_25_tasks.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="364">
-              <caret line="95" column="48" lean-forward="true" selection-start-line="95" selection-start-column="48" selection-end-line="95" selection-end-column="48" />
+            <state relative-caret-position="432">
+              <caret line="508" column="5" lean-forward="true" selection-start-line="508" selection-start-column="5" selection-end-line="508" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -84,7 +76,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>removeRequestFromQueue</find>
       <find>onNodeAccessRequest</find>
       <find>floor_requests_queue</find>
       <find>isNodeFloorAvailable</find>
@@ -114,6 +105,7 @@
       <find>getAllMyAccessedNodes</find>
       <find>removeAllMyAccessedAttributes</find>
       <find>workflow</find>
+      <find>tree</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -158,8 +150,11 @@
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/updates_per_collab.js" />
         <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
+        <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/127.0.0.1-1516914970898.log" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js" />
+        <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictLocking/updates_StrictModuleLocking_LinearW.js" />
+        <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
+        <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js" />
       </list>
     </option>
   </component>
@@ -238,19 +233,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Experiments" />
+              <option name="myItemId" value="JsSimulationScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="UpdatesPerCollab" />
+              <option name="myItemId" value="static" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="TurnBased" />
+              <option name="myItemId" value="JsSimulationScripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Scripts" />
+              <option name="myItemId" value="StrictModuleLocking" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -279,12 +284,34 @@
               <option name="myItemId" value="TurnBased" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Results" />
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="logs" />
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Experiments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UpdatesPerCollab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StrictModuleLocking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -304,6 +331,7 @@
       <recent name="C:\Users\Mostaeen\Desktop\newproj\venv\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\__My_Study_UofS\P2IRC\MyProjects\Collaborative_Scientific_Workflow_SIMULATION\Git_Project\Collaborative_Sci_Workflow_Simulation\static\Experiments\UpdatesPerCollab\StrictModuleLocking\Scripts" />
       <recent name="C:\__My_Study_UofS\P2IRC\MyProjects\Collaborative_Scientific_Workflow_SIMULATION\Git_Project\Collaborative_Sci_Workflow_Simulation\static\Experiments\UpdatesPerCollab\TurnBased\Scripts" />
       <recent name="C:\__My_Study_UofS\P2IRC\MyProjects\Collaborative_Scientific_Workflow_SIMULATION\Git_Project\Collaborative_Sci_Workflow_Simulation\static" />
       <recent name="C:\Users\Mostaeen\Desktop\newproj\venv\static" />
@@ -550,27 +578,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/api_flask.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="9" column="34" lean-forward="false" selection-start-line="9" selection-start-column="34" selection-end-line="9" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/annAlStudy.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-380">
@@ -800,16 +807,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="40" column="34" lean-forward="true" selection-start-line="40" selection-start-column="34" selection-end-line="40" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#42869#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/TurnBased/turnBased_withObjects.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -834,16 +831,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="1549" column="65" lean-forward="false" selection-start-line="1549" selection-start-column="54" selection-end-line="1549" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#78#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/codeclone_validation.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="608">
@@ -856,14 +843,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="4" lean-forward="false" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="92" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="0" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -892,11 +871,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/127.0.0.1-1516914970898.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-649494">
+          <caret line="21195" column="48" lean-forward="false" selection-start-line="21195" selection-start-column="48" selection-end-line="21195" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/4_collab_25_tasks.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="24" column="48" lean-forward="true" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="32" column="17" lean-forward="true" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#42869#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="756">
+          <caret line="1549" column="65" lean-forward="false" selection-start-line="1549" selection-start-column="54" selection-end-line="1549" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#78#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="12" column="6" lean-forward="true" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="402">
-          <caret line="510" column="0" lean-forward="true" selection-start-line="510" selection-start-column="0" selection-end-line="510" selection-end-column="0" />
+        <state relative-caret-position="432">
+          <caret line="508" column="5" lean-forward="true" selection-start-line="508" selection-start-column="5" selection-end-line="508" selection-end-column="5" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="463">
+          <caret line="694" column="0" lean-forward="true" selection-start-line="694" selection-start-column="0" selection-end-line="694" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#121145#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
