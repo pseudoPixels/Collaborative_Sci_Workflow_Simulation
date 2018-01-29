@@ -565,26 +565,42 @@ var INSTRUCTIONS_PER_COLLABORATOR = 25;
 
 
 
-
+  //Collaborator Threads
+var numOfDoneCollabs = 0;
+var nextNumOfCollab = 1;
 
 
 //Workflow Construction
-var workflow = new Tree('n1');
+  var workflow = new Tree('n1');
+
 
 workflow.add('n2', 'n1', workflow.traverseDF);
-workflow.add('n3', 'n1', workflow.traverseDF);
-workflow.add('n4', 'n2', workflow.traverseDF);
+workflow.add('n3', 'n2', workflow.traverseDF);
 workflow.add('n4', 'n3', workflow.traverseDF);
+workflow.add('n5', 'n4', workflow.traverseDF);
+workflow.add('n6', 'n5', workflow.traverseDF);
+workflow.add('n7', 'n6', workflow.traverseDF);
+workflow.add('n8', 'n7', workflow.traverseDF);
+workflow.add('n9', 'n8', workflow.traverseDF);
+workflow.add('n10', 'n9', workflow.traverseDF);
+workflow.add('n11', 'n10', workflow.traverseDF);
+workflow.add('n12', 'n11', workflow.traverseDF);
+workflow.add('n13', 'n12', workflow.traverseDF);
+workflow.add('n14', 'n13', workflow.traverseDF);
+workflow.add('n15', 'n14', workflow.traverseDF);
+workflow.add('n16', 'n15', workflow.traverseDF);
+workflow.add('n17', 'n16', workflow.traverseDF);
+workflow.add('n18', 'n17', workflow.traverseDF);
+workflow.add('n19', 'n18', workflow.traverseDF);
+workflow.add('n20', 'n19', workflow.traverseDF);
+workflow.add('n21', 'n20', workflow.traverseDF);
+workflow.add('n22', 'n21', workflow.traverseDF);
+workflow.add('n23', 'n22', workflow.traverseDF);
+workflow.add('n24', 'n23', workflow.traverseDF);
+workflow.add('n25', 'n24', workflow.traverseDF);
 
-/*
-workflow.add('n2', 'n1', workflow.traverseDF);
-workflow.add('n3', 'n1', workflow.traverseDF);
-workflow.add('n4', 'n2', workflow.traverseDF);
-workflow.add('n5', 'n2', workflow.traverseDF);
-workflow.add('n6', 'n3', workflow.traverseDF);
-workflow.add('n7', 'n3', workflow.traverseDF);
-*/
-var NUM_OF_MODULES = 4;
+
+var NUM_OF_MODULES = 25;
 
 
 
@@ -882,6 +898,24 @@ WorkflowCollaborator.prototype.simulate = function() {
         console.log("END"+ "_" + this.collaboratorID);
         this.removeAllMyAccessedNodes();//remove accessed nodes for this collaborator
         this.removeAllMyAccessedAttributes();//remove accessed attributes for this collaborator
+
+
+
+        numOfDoneCollabs++;
+
+        if(numOfDoneCollabs == nextNumOfCollab-1){
+            numOfDoneCollabs = 0;
+
+            if(nextNumOfCollab >2){
+                alert("Done : " + nextNumOfCollab);
+            }else{
+                run_simulation_steps(nextNumOfCollab);
+                nextNumOfCollab++;
+            }
+
+      }
+
+
     }
 
 
@@ -917,9 +951,1059 @@ function print_list(theList, listName) {
 
 
 
+
+
+
+
+
+
+console.log("Tasks: 25; Collaborators: 1    =========================>");
+var c0 = new WorkflowCollaborator(0, 0);
+c0.simulate();
+nextNumOfCollab++;
+
+
+function run_simulation_steps(nCollabs){
+    if(nCollabs==1){
+       console.log("Tasks: 25; Collaborators: 1    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       c0.simulate();
+    }
+    if(nCollabs==2){
+       console.log("Tasks: 25; Collaborators: 2    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       c0.simulate();
+       c1.simulate();
+    }
+    if(nCollabs==3){
+       console.log("Tasks: 25; Collaborators: 3    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+    }
+    if(nCollabs==4){
+       console.log("Tasks: 25; Collaborators: 4    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+    }
+    if(nCollabs==5){
+       console.log("Tasks: 25; Collaborators: 5    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+    }
+    if(nCollabs==6){
+       console.log("Tasks: 25; Collaborators: 6    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+    }
+    if(nCollabs==7){
+       console.log("Tasks: 25; Collaborators: 7    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+    }
+    if(nCollabs==8){
+       console.log("Tasks: 25; Collaborators: 8    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+    }
+    if(nCollabs==9){
+       console.log("Tasks: 25; Collaborators: 9    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+    }
+    if(nCollabs==10){
+       console.log("Tasks: 25; Collaborators: 10    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+    }
+    if(nCollabs==11){
+       console.log("Tasks: 25; Collaborators: 11    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+    }
+    if(nCollabs==12){
+       console.log("Tasks: 25; Collaborators: 12    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+    }
+    if(nCollabs==13){
+       console.log("Tasks: 25; Collaborators: 13    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+    }
+    if(nCollabs==14){
+       console.log("Tasks: 25; Collaborators: 14    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+    }
+    if(nCollabs==15){
+       console.log("Tasks: 25; Collaborators: 15    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+    }
+    if(nCollabs==16){
+       console.log("Tasks: 25; Collaborators: 16    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+    }
+    if(nCollabs==17){
+       console.log("Tasks: 25; Collaborators: 17    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+    }
+    if(nCollabs==18){
+       console.log("Tasks: 25; Collaborators: 18    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+    }
+    if(nCollabs==19){
+       console.log("Tasks: 25; Collaborators: 19    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+    }
+    if(nCollabs==20){
+       console.log("Tasks: 25; Collaborators: 20    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+    }
+    if(nCollabs==21){
+       console.log("Tasks: 25; Collaborators: 21    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+    }
+    if(nCollabs==22){
+       console.log("Tasks: 25; Collaborators: 22    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+    }
+    if(nCollabs==23){
+       console.log("Tasks: 25; Collaborators: 23    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+    }
+    if(nCollabs==24){
+       console.log("Tasks: 25; Collaborators: 24    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+    }
+    if(nCollabs==25){
+       console.log("Tasks: 25; Collaborators: 25    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       var c24 = new WorkflowCollaborator(24, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+       c24.simulate();
+    }
+    if(nCollabs==26){
+       console.log("Tasks: 25; Collaborators: 26    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       var c24 = new WorkflowCollaborator(24, 0);
+       var c25 = new WorkflowCollaborator(25, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+       c24.simulate();
+       c25.simulate();
+    }
+    if(nCollabs==27){
+       console.log("Tasks: 25; Collaborators: 27    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       var c24 = new WorkflowCollaborator(24, 0);
+       var c25 = new WorkflowCollaborator(25, 0);
+       var c26 = new WorkflowCollaborator(26, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+       c24.simulate();
+       c25.simulate();
+       c26.simulate();
+    }
+    if(nCollabs==28){
+       console.log("Tasks: 25; Collaborators: 28    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       var c24 = new WorkflowCollaborator(24, 0);
+       var c25 = new WorkflowCollaborator(25, 0);
+       var c26 = new WorkflowCollaborator(26, 0);
+       var c27 = new WorkflowCollaborator(27, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+       c24.simulate();
+       c25.simulate();
+       c26.simulate();
+       c27.simulate();
+    }
+    if(nCollabs==29){
+       console.log("Tasks: 25; Collaborators: 29    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       var c24 = new WorkflowCollaborator(24, 0);
+       var c25 = new WorkflowCollaborator(25, 0);
+       var c26 = new WorkflowCollaborator(26, 0);
+       var c27 = new WorkflowCollaborator(27, 0);
+       var c28 = new WorkflowCollaborator(28, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+       c24.simulate();
+       c25.simulate();
+       c26.simulate();
+       c27.simulate();
+       c28.simulate();
+    }
+    if(nCollabs==30){
+       console.log("Tasks: 25; Collaborators: 30    =========================>");
+       var c0 = new WorkflowCollaborator(0, 0);
+       var c1 = new WorkflowCollaborator(1, 0);
+       var c2 = new WorkflowCollaborator(2, 0);
+       var c3 = new WorkflowCollaborator(3, 0);
+       var c4 = new WorkflowCollaborator(4, 0);
+       var c5 = new WorkflowCollaborator(5, 0);
+       var c6 = new WorkflowCollaborator(6, 0);
+       var c7 = new WorkflowCollaborator(7, 0);
+       var c8 = new WorkflowCollaborator(8, 0);
+       var c9 = new WorkflowCollaborator(9, 0);
+       var c10 = new WorkflowCollaborator(10, 0);
+       var c11 = new WorkflowCollaborator(11, 0);
+       var c12 = new WorkflowCollaborator(12, 0);
+       var c13 = new WorkflowCollaborator(13, 0);
+       var c14 = new WorkflowCollaborator(14, 0);
+       var c15 = new WorkflowCollaborator(15, 0);
+       var c16 = new WorkflowCollaborator(16, 0);
+       var c17 = new WorkflowCollaborator(17, 0);
+       var c18 = new WorkflowCollaborator(18, 0);
+       var c19 = new WorkflowCollaborator(19, 0);
+       var c20 = new WorkflowCollaborator(20, 0);
+       var c21 = new WorkflowCollaborator(21, 0);
+       var c22 = new WorkflowCollaborator(22, 0);
+       var c23 = new WorkflowCollaborator(23, 0);
+       var c24 = new WorkflowCollaborator(24, 0);
+       var c25 = new WorkflowCollaborator(25, 0);
+       var c26 = new WorkflowCollaborator(26, 0);
+       var c27 = new WorkflowCollaborator(27, 0);
+       var c28 = new WorkflowCollaborator(28, 0);
+       var c29 = new WorkflowCollaborator(29, 0);
+       c0.simulate();
+       c1.simulate();
+       c2.simulate();
+       c3.simulate();
+       c4.simulate();
+       c5.simulate();
+       c6.simulate();
+       c7.simulate();
+       c8.simulate();
+       c9.simulate();
+       c10.simulate();
+       c11.simulate();
+       c12.simulate();
+       c13.simulate();
+       c14.simulate();
+       c15.simulate();
+       c16.simulate();
+       c17.simulate();
+       c18.simulate();
+       c19.simulate();
+       c20.simulate();
+       c21.simulate();
+       c22.simulate();
+       c23.simulate();
+       c24.simulate();
+       c25.simulate();
+       c26.simulate();
+       c27.simulate();
+       c28.simulate();
+       c29.simulate();
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //collaborators
-var c0 = new WorkflowCollaborator(0,0);
-var c1 = new WorkflowCollaborator(1,0);
+//var c0 = new WorkflowCollaborator(0,0);
+//var c1 = new WorkflowCollaborator(1,0);
 //var c2 = new WorkflowCollaborator(2,0);
 //var c3 = new WorkflowCollaborator(3,0);
 //var c4 = new WorkflowCollaborator(4,0);
@@ -927,8 +2011,8 @@ var c1 = new WorkflowCollaborator(1,0);
 
 
 
-c0.simulate();
-c1.simulate();
+//c0.simulate();
+//c1.simulate();
 //c2.simulate();
 //c3.simulate();
 //c4.simulate();

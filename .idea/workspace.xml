@@ -35,8 +35,18 @@
       <file leaf-file-name="workflow_simulation.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="176">
+              <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updates_attributeLocking.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="367">
+              <caret line="907" column="0" lean-forward="true" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -45,31 +55,11 @@
       <file leaf-file-name="updates_StrictModuleLocking_LinearW.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="474" column="0" lean-forward="false" selection-start-line="474" selection-start-column="0" selection-end-line="474" selection-end-column="0" />
+            <state relative-caret-position="207">
+              <caret line="429" column="0" lean-forward="false" selection-start-line="429" selection-start-column="0" selection-end-line="431" selection-end-column="24" />
               <folding>
                 <element signature="e#0#121176#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="updates_attributeLocking.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="222">
-              <caret line="971" column="2" lean-forward="true" selection-start-line="971" selection-start-column="2" selection-end-line="971" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="updates_per_collab.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="508" column="5" lean-forward="false" selection-start-line="508" selection-start-column="5" selection-end-line="508" selection-end-column="5" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -163,8 +153,8 @@
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/127.0.0.1-1516914970898.log" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictLocking/updates_StrictModuleLocking_LinearW.js" />
-        <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js" />
+        <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js" />
       </list>
     </option>
@@ -289,6 +279,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="UpdatesPerCollab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Experiments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="UpdatesPerCollab" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="StrictModuleLocking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Scripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -903,14 +923,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="6" lean-forward="false" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Scripts/updates_per_collab.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -919,10 +931,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/workflow_simulation.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="34" lean-forward="true" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="474" column="0" lean-forward="false" selection-start-line="474" selection-start-column="0" selection-end-line="474" selection-end-column="0" />
+        <state relative-caret-position="207">
+          <caret line="429" column="0" lean-forward="false" selection-start-line="429" selection-start-column="0" selection-end-line="431" selection-end-column="24" />
           <folding>
             <element signature="e#0#121176#0" expanded="false" />
           </folding>
@@ -931,8 +951,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="222">
-          <caret line="971" column="2" lean-forward="true" selection-start-line="971" selection-start-column="2" selection-end-line="971" selection-end-column="2" />
+        <state relative-caret-position="367">
+          <caret line="907" column="0" lean-forward="true" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
           <folding />
         </state>
       </provider>
