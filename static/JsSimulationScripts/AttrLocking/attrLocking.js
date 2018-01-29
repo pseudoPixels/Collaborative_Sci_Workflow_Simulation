@@ -515,7 +515,7 @@ function tryServingFromWaitingRequests() {
         var theNode = workflow.getNode(nID, workflow.traverseDF);
 
         //if the node is not currently SYSTEM, USER or ATTRIBUTE locked, the request can be granted...
-        if(theNode.isUserLocked()==false && theNode.numOfSystemLocks==0 && theNode.attributes[aID]==false){
+        if(theNode.isUserLocked==false && theNode.numOfSystemLocks==0 && theNode.attributes[aID]==false){
             //make this request (which is supposed to get accepted)
             newAttributeAccessRequest(collabID, nID, aID);
 

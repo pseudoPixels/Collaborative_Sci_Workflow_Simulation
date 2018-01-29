@@ -45,8 +45,18 @@
       <file leaf-file-name="updates_attributeLocking.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="367">
-              <caret line="907" column="0" lean-forward="true" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
+            <state relative-caret-position="393">
+              <caret line="520" column="0" lean-forward="true" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="attrLocking.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="281">
+              <caret line="517" column="31" lean-forward="false" selection-start-line="517" selection-start-column="31" selection-end-line="517" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -76,7 +86,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>onNodeAccessRequest</find>
       <find>floor_requests_queue</find>
       <find>isNodeFloorAvailable</find>
       <find>isNodeFloo</find>
@@ -106,6 +115,7 @@
       <find>removeAllMyAccessedAttributes</find>
       <find>workflow</find>
       <find>tree</find>
+      <find>isUserLocked</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,7 +157,6 @@
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/TurnBased/turnBased_withObjects.js" />
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/UserSystemLocks/userSystemLocks.js" />
         <option value="$PROJECT_DIR$/static/JsSimulationScripts/StrictModuleLocking/StrictModuleLocking.js" />
-        <option value="$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/updates_per_collab.js" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/TurnBased/Results/logs/127.0.0.1-1516914970898.log" />
@@ -155,6 +164,7 @@
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictLocking/updates_StrictModuleLocking_LinearW.js" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js" />
         <option value="$PROJECT_DIR$/templates/workflow_simulation.html" />
+        <option value="$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js" />
         <option value="$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js" />
       </list>
     </option>
@@ -257,6 +267,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="StrictModuleLocking" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Collaborative_Sci_Workflow_Simulation" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="static" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JsSimulationScripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AttrLocking" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -831,14 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="757" column="18" lean-forward="true" selection-start-line="757" selection-start-column="18" selection-end-line="757" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/codeclone_stats.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-11840">
@@ -949,10 +973,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="517" column="31" lean-forward="false" selection-start-line="517" selection-start-column="31" selection-end-line="517" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="367">
-          <caret line="907" column="0" lean-forward="true" selection-start-line="907" selection-start-column="0" selection-end-line="907" selection-end-column="0" />
+        <state relative-caret-position="393">
+          <caret line="520" column="0" lean-forward="true" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
           <folding />
         </state>
       </provider>
