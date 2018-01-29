@@ -45,8 +45,8 @@
       <file leaf-file-name="updates_attributeLocking.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="520" column="0" lean-forward="true" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
+            <state relative-caret-position="420">
+              <caret line="562" column="19" lean-forward="true" selection-start-line="562" selection-start-column="19" selection-end-line="562" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -65,8 +65,8 @@
       <file leaf-file-name="updates_StrictModuleLocking_LinearW.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="429" column="0" lean-forward="false" selection-start-line="429" selection-start-column="0" selection-end-line="431" selection-end-column="24" />
+            <state relative-caret-position="625">
+              <caret line="418" column="2" lean-forward="true" selection-start-line="386" selection-start-column="0" selection-end-line="418" selection-end-column="2" />
               <folding>
                 <element signature="e#0#121176#0" expanded="false" />
               </folding>
@@ -963,16 +963,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="429" column="0" lean-forward="false" selection-start-line="429" selection-start-column="0" selection-end-line="431" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#121176#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/JsSimulationScripts/AttrLocking/attrLocking.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -981,10 +971,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/StrictModuleLocking/Scripts/updates_StrictModuleLocking_LinearW.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="625">
+          <caret line="418" column="2" lean-forward="true" selection-start-line="386" selection-start-column="0" selection-end-line="418" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#121176#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/Experiments/UpdatesPerCollab/AttributeLocking/updates_attributeLocking.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="520" column="0" lean-forward="true" selection-start-line="520" selection-start-column="0" selection-end-line="520" selection-end-column="0" />
+        <state relative-caret-position="420">
+          <caret line="562" column="19" lean-forward="true" selection-start-line="562" selection-start-column="19" selection-end-line="562" selection-end-column="19" />
           <folding />
         </state>
       </provider>
